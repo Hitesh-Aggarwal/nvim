@@ -2,6 +2,7 @@
 
 **For Linux**:
 * Install [ripgrep](https://github.com/BurntSushi/ripgrep)
+
 **For Windows**:
 * Install [ripgrep](https://github.com/BurntSushi/ripgrep)
 * Install [llvm-mingw](https://github.com/mstorsjo/llvm-mingw)
