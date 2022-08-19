@@ -1,5 +1,7 @@
 # This is a repository of my config files for Neovim.
 
+### **CAUTION**: Neovim >= v0.7.2 *is required*
+
 ### Dependencies
 
 **Install git and [ripgrep](https://github.com/BurntSushi/ripgrep)**
