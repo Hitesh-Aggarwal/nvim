@@ -11,7 +11,7 @@ else
 end
 
 -- Automatically install packer
-local install_path = fn.stdpath'data' .. sep .. 'site' .. sep .. 'pack' .. sep .. 'packer' .. sep .. 'start' .. sep .. 'packer.nvim'
+local install_path = fn.stdpath('data') .. sep .. 'site' .. sep .. 'pack' .. sep .. 'packer' .. sep .. 'start' .. sep .. 'packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
     "git",
@@ -21,6 +21,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     "https://github.com/wbthomason/packer.nvim",
     install_path,
   }
+  vim.cmd [[ packadd packer.nvim ]]
   print "Installing packer"
 end
 
@@ -96,6 +97,6 @@ return packer.startup(function(use)
 
   if PACKER_BOOTSTRAP then
     print("Installing plugins")
-    vim.cmd("PackerSync")
+    require('packer').sync()
   end
 end)
