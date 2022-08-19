@@ -22,9 +22,14 @@ Delete these folders if they exist.
 * ~\AppData\Local\nvim-data\
 * ~\AppData\Local\temp\nvim\
 
-Then run this command in gitbash or powershell.
+Then run this command in git bash:
 ```
-git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git ~\AppData\Local\nvim\
+git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git ~/AppData/Local/nvim/
+```
+
+or powershell:
+```
+git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git $home\AppData\Local\nvim\
 ```
 
 **Linux**
