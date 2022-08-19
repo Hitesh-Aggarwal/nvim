@@ -16,6 +16,7 @@ and add the bin folder to path.
 ### Installation
 
 **Windows**
+
 Delete these folders if they exist.
 
 * ~\AppData\Local\nvim\
@@ -33,6 +34,7 @@ git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git $home\AppData\Lo
 ```
 
 **Linux**
+
 Delete these folders if they exist.
 
 * ~/.config/nvim/
