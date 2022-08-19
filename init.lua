@@ -1,6 +1,6 @@
 local status_ok, impatient = pcall(require, "impatient")
 if not status_ok then
-  print('Restart neovim for faster loading')
+  print('Restart neovim after installing plugins')
 end
 require('plugins')
 require('settings')

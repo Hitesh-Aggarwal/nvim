@@ -1,10 +1,13 @@
 local fn = vim.fn
 
 local sep = ''
+local tool = ''
 if (jit.os == 'Windows') then
   sep = '\\'
+  tool = 'mingw32-make'
 else
   sep = '/'
+  tool = 'make'
 end
 
 -- Automatically install packer
@@ -18,7 +21,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     "https://github.com/wbthomason/packer.nvim",
     install_path,
   }
-  print "Installing packer close and reopen Neovim..."
+  print "Installing packer"
 end
 
 local status_ok, packer = pcall(require, "packer")
@@ -89,9 +92,10 @@ return packer.startup(function(use)
     end
   }
 
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'mingw32-make' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = tool}
 
   if PACKER_BOOTSTRAP then
-    require("packer").sync()
+    print("Installing plugins")
+    vim.cmd("PackerSync")
   end
 end)
