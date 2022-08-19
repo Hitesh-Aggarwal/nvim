@@ -47,12 +47,13 @@ map('v', '>', '>gv')
 -- Go to next and previous buffers easily
 map('n', '<C-n>', ':bnext<CR>')
 map('n', '<C-p>', ':bprevious<CR>')
+map('n', '<leader>b', "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({ previewer = false }))<CR>")
 
 -- Quickly open config file
 map('n', '<leader>c', ":e <C-R>=stdpath('config') . '" .. sep .. "init.lua'<CR><CR>")
 
 -- browse old files
-map('n', '<leader>o', ':browse oldfiles<CR>')
+map('n', '<leader>o', "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown({ previewer = false }))<CR>")
 
 -- Escape key goes to normal mode in terminal
 map('t', '<Esc>' , '<C-\\><C-n>')

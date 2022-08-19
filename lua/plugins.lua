@@ -81,7 +81,8 @@ return packer.startup(function(use)
     -- or                            , branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} },
     config = function()
-      require('telescope').setup {
+      local telescope = require('telescope')
+      telescope.setup {
         extensions = {
           fzf = {
             fuzzy = true,                    -- false will only do exact matching
@@ -92,9 +93,7 @@ return packer.startup(function(use)
           }
         }
       }
-      -- To get fzf loaded and working with telescope, you need to call
-      -- load_extension, somewhere after setup function:
-      require('telescope').load_extension('fzf')
+      telescope.load_extension('fzf')
     end
   }
 
