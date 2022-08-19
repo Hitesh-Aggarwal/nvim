@@ -61,7 +61,7 @@ map('t', '<Esc>' , '<C-\\><C-n>')
 map('n', '<leader>e', ':Lex 15<CR>')
 
 -- Telescope
-map('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files()<CR>")
+map('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>")
 map('n', '<leader>fr', "<cmd>lua require'telescope.builtin'.live_grep()<CR>")
 
 -- Change directory to current file
