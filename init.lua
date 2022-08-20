@@ -1,9 +1,7 @@
-local status_ok, impatient = pcall(require, "impatient")
-if not status_ok then
-  print('Restart neovim after installing plugins')
-end
-require('plugins')
+pcall(require, "impatient")
 require('settings')
+require('plugins')
+require('configuration')
 require('mappings')
 require('autocommands')
 require('colorscheme')
