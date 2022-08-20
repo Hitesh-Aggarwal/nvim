@@ -76,6 +76,8 @@ return packer.startup(function(use)
     end
   }
 
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = tool}
+
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     -- or                            , branch = '0.1.x',
@@ -96,8 +98,6 @@ return packer.startup(function(use)
       telescope.load_extension('fzf')
     end
   }
-
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = tool}
 
   if PACKER_BOOTSTRAP then
     print("Installing plugins")
