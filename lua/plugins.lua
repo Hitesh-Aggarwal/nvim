@@ -39,6 +39,8 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs"
   use 'numToStr/Comment.nvim'
   use 'norcalli/nvim-colorizer.lua'
+  use "ahmedkhalf/project.nvim"
+
   use {'nvim-telescope/telescope-fzf-native.nvim', run = tool}
 
   use {

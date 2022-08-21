@@ -14,6 +14,8 @@ require'colorizer'.setup {
   javascript = { css = true };
 }
 
+require("project_nvim").setup {}
+
 if (jit.os == 'Windows') then
   require('nvim-treesitter.install').compilers = { "clang" }
 end
@@ -39,3 +41,4 @@ telescope.setup {
   }
 }
 telescope.load_extension('fzf')
+telescope.load_extension('projects')
