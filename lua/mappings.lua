@@ -58,9 +58,6 @@ map('n', '<leader>o', "<cmd>lua require'telescope.builtin'.oldfiles(require('tel
 -- Escape key goes to normal mode in terminal
 map('t', '<Esc>' , '<C-\\><C-n>')
 
--- Open file explorer
-map('n', '<leader>e', ':Lex 15<CR>')
-
 -- Telescope
 map('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>")
 map('n', '<leader>fr', "<cmd>lua require'telescope.builtin'.live_grep()<CR>")
