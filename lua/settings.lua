@@ -26,6 +26,7 @@ o.mouse = "a"
 o.splitbelow = true
 o.splitright = true
 o.history = 50
+o.signcolumn = "yes"
 
 g.netrw_banner = 0
 g.mapleader = ";"

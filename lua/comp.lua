@@ -116,19 +116,34 @@ cmp.setup.filetype('gitcommit', {
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['clangd'].setup {
+
+local nvim_lsp = require('lspconfig')
+
+nvim_lsp['clangd'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities
 }
 
-require'lspconfig'.pyright.setup{
+nvim_lsp.pyright.setup{
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities
 }
 
-require'lspconfig'.sumneko_lua.setup {
+nvim_lsp.tsserver.setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities
+}
+
+nvim_lsp.quick_lint_js.setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities
+}
+
+nvim_lsp.sumneko_lua.setup {
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities,
