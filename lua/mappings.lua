@@ -77,4 +77,4 @@ function! CleverTab()
 endfunction
 ]])
 
-map('i', '<Tab>', 'CleverTab()', { expr = true })
+-- map('i', '<Tab>', 'CleverTab()', { expr = true })
