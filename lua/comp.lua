@@ -3,6 +3,7 @@ if not mason_ok then
   return
 end
 mason.setup()
+require "lsp_signature".setup()
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -142,3 +143,4 @@ nvim_lsp.quick_lint_js.setup{
   flags = lsp_flags,
   capabilities = capabilities
 }
+
