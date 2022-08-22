@@ -59,8 +59,7 @@ map('n', '<leader>o', "<cmd>lua require'telescope.builtin'.oldfiles(require('tel
 map('t', '<Esc>' , '<C-\\><C-n>')
 
 -- Telescope
-map('n', '<leader>gf', "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_dropdown({previewer = false}))<CR>")
-map('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>")
+map('n', '<leader>ff', "<cmd>lua require'configuration'.project_files()<CR>")
 map('n', '<leader>fr', "<cmd>lua require'telescope.builtin'.live_grep()<CR>")
 map('n', '<leader>fp', "<cmd>Telescope projects<CR>")
 
