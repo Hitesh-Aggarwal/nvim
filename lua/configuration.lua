@@ -2,9 +2,8 @@ local status_ok, comment = pcall(require, 'Comment')
 if not status_ok then
   print('Restart neovim after plugins are installed')
   return
-else
-  comment.setup()
 end
+comment.setup()
 
 require('nvim-autopairs').setup{}
 
@@ -13,6 +12,35 @@ require'colorizer'.setup {
   html = { css = true };
   javascript = { css = true };
 }
+
+require("nvim-tree").setup({
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_root = true
+  },
+  renderer = {
+    icons = {
+      show = {
+        file = false,
+        folder = false,
+        folder_arrow = true,
+        git = true,
+      },
+      glyphs = {
+        folder = {
+          arrow_closed = "➤",
+          arrow_open = "▼",
+        },
+        git = {
+          unmerged = "⤿",
+          deleted = "✂",
+        }
+      }
+    }
+  }
+})
 
 require("project_nvim").setup {}
 

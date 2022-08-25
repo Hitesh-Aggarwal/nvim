@@ -48,10 +48,9 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
   use "rafamadriz/friendly-snippets"
-  use { "williamboman/mason.nvim" }
-  use {
-    "ray-x/lsp_signature.nvim",
-  }
+  use "williamboman/mason.nvim"
+  use "ray-x/lsp_signature.nvim"
+  use 'kyazdani42/nvim-tree.lua'
 
   use {'nvim-telescope/telescope-fzf-native.nvim', run = tool}
 

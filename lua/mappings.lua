@@ -58,6 +58,9 @@ map('n', '<leader>o', "<cmd>lua require'telescope.builtin'.oldfiles(require('tel
 -- Escape key goes to normal mode in terminal
 map('t', '<Esc>' , '<C-\\><C-n>')
 
+-- Open NvimTree
+map('n', '<leader>e', '<cmd>NvimTreeOpen<CR>')
+
 -- Telescope
 map('n', '<leader>ff', "<cmd>lua require'configuration'.project_files()<CR>")
 map('n', '<leader>fr', "<cmd>lua require'telescope.builtin'.live_grep()<CR>")
