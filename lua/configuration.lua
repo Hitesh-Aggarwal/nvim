@@ -20,6 +20,11 @@ require("nvim-tree").setup({
     enable = true,
     update_root = true
   },
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    }
+  },
   renderer = {
     icons = {
       show = {
