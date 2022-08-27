@@ -31,3 +31,5 @@ o.signcolumn = "yes"
 g.netrw_banner = 0
 g.mapleader = ";"
 g.maplocalleader = ";"
+g.do_filetype_lua = 1
+g.did_load_filetypes = 0
