@@ -4,7 +4,7 @@
 
 ### Dependencies
 
-**Install git and [ripgrep](https://github.com/BurntSushi/ripgrep)**
+**Install *git*, *npm* and [*ripgrep*](https://github.com/BurntSushi/ripgrep)**
 
 **Linux**:
 * Install build-essential.
@@ -45,5 +45,6 @@ Delete these folders if they exist.
 git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git ~/.config/nvim/
 ```
 
-First run of nvim will install packer and all the plugins. After installation
-quit nvim and start again.
+First run of nvim will install packer and all the plugins.
+Language servers need to be installed manually as required using :MasonInstall <langservername>
+and then added to comp.lua
