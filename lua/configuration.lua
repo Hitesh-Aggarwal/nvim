@@ -25,27 +25,30 @@ require("nvim-tree").setup({
       quit_on_open = true,
     }
   },
-  renderer = {
-    icons = {
-      show = {
-        file = false,
-        folder = false,
-        folder_arrow = true,
-        git = true,
-      },
-      glyphs = {
-        folder = {
-          arrow_closed = "➤",
-          arrow_open = "▼",
-        },
-        git = {
-          unmerged = "⤿",
-          deleted = "✂",
-        }
-      }
-    }
-  }
 })
+
+require("toggleterm").setup{
+size = 20,
+	open_mapping = [[<leader>t]],
+	hide_numbers = true,
+	shade_filetypes = {},
+	shade_terminals = true,
+	shading_factor = 2,
+	start_in_insert = true,
+	insert_mappings = false,
+	persist_size = true,
+	direction = "float",
+	close_on_exit = true,
+	shell = vim.o.shell,
+	float_opts = {
+		border = "curved",
+		winblend = 0,
+		highlights = {
+			border = "Normal",
+			background = "Normal",
+		},
+	},
+}
 
 require("project_nvim").setup {}
 
