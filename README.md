@@ -46,5 +46,5 @@ git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git ~/.config/nvim/
 ```
 
 First run of nvim will install packer and all the plugins.
-Language servers need to be installed manually as required using :MasonInstall <langservername>
+Language servers need to be installed manually as required using :MasonInstall \<langservername\>
 and then added to comp.lua
