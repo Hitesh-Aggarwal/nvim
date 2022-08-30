@@ -1,43 +1,8 @@
-local sep = ''
-if (jit.os == 'Windows') then
-  sep = '\\'
-else
-  sep = '/'
-end
-
--- Helper function
-function read_file(filetype)
-  local path = vim.fn.stdpath('config') .. sep .. 'skel'.. sep .. filetype .. '.skel'
-  vim.cmd("0r " .. path)
-end
-
 -- Augroups
-local write_skeleton = vim.api.nvim_create_augroup("WriteSkeleton" , { clear = true })
 local basics = vim.api.nvim_create_augroup("basics", { clear = true })
 local packer_user_config = vim.api.nvim_create_augroup("PackerUserConfig", {clear = true})
 
 -- autocommands
-vim.api.nvim_create_autocmd("BufNewFile", {
-  group = write_skeleton,
-  pattern = "*.c",
-  callback = function(args) read_file('c') end,
-  desc = "Skeleton code for c files"
-})
-
-vim.api.nvim_create_autocmd("BufNewFile", {
-  group = write_skeleton,
-  pattern = "*.cpp",
-  callback = function(args) read_file('cpp') end,
-  desc = "Skeleton code for cpp files"
-})
-
-vim.api.nvim_create_autocmd("BufNewFile", {
-  group = write_skeleton,
-  pattern = "*.html",
-  callback = function(args) read_file('html') end,
-  desc = "Skeleton code for html files"
-})
-
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = basics,
   pattern = "*",
@@ -54,9 +19,9 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   group = packer_user_config,
-  pattern = "plugins.lua",
+  pattern = "packer.lua",
   command = "source <afile> | PackerCompile",
-  desc = "Run :PackerCompile when plugins.lua is written"
+  desc = "Run :PackerCompile when packer.lua is written"
 })
 
 vim.cmd([[
