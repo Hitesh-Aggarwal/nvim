@@ -19,9 +19,9 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("BufWritePost", {
 	group = packer_user_config,
-	pattern = "packer.lua",
+	pattern = "plugin.lua",
 	command = "source <afile> | PackerCompile",
-	desc = "Run :PackerCompile when packer.lua is written",
+	desc = "Run :PackerCompile when plugin.lua is written",
 })
 
 vim.cmd([[
