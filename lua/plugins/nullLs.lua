@@ -8,5 +8,6 @@ local formatting = nullls.builtins.formatting
 nullls.setup({
 	sources = {
 		formatting.stylua,
+    formatting.prettierd,
 	},
 })
