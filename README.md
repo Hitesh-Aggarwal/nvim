@@ -1,17 +1,19 @@
 # This is a repository of my config files for Neovim.
 
-### **CAUTION**: Neovim >= v0.7.2 *is required*
+### **CAUTION**: Neovim >= v0.7.2 _is required_
 
 ### Dependencies
 
-**Install *git*, *npm* and [*ripgrep*](https://github.com/BurntSushi/ripgrep)**
+**Install _git_, _npm_ and [_ripgrep_](https://github.com/BurntSushi/ripgrep)**
 
 **Linux**:
-* Install build-essential.
+
+- Install build-essential.
 
 **Windows**:
-* Install [llvm-mingw](https://github.com/mstorsjo/llvm-mingw)
-and add the bin folder to path.
+
+- Install [llvm-mingw](https://github.com/mstorsjo/llvm-mingw)
+  and add the bin folder to path.
 
 ### Installation
 
@@ -19,16 +21,18 @@ and add the bin folder to path.
 
 Delete these folders if they exist.
 
-* ~\AppData\Local\nvim\
-* ~\AppData\Local\nvim-data\
-* ~\AppData\Local\temp\nvim\
+- ~\AppData\Local\nvim\
+- ~\AppData\Local\nvim-data\
+- ~\AppData\Local\temp\nvim\
 
 Then run this command in git bash:
+
 ```
 git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git ~/AppData/Local/nvim/
 ```
 
 or powershell:
+
 ```
 git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git $home\AppData\Local\nvim\
 ```
@@ -37,9 +41,9 @@ git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git $home\AppData\Lo
 
 Delete these folders if they exist.
 
-* ~/.config/nvim/
-* ~/.local/share/nvim/
-* ~/.cache/nvim/
+- ~/.config/nvim/
+- ~/.local/share/nvim/
+- ~/.cache/nvim/
 
 ```
 git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git ~/.config/nvim/
@@ -47,4 +51,5 @@ git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git ~/.config/nvim/
 
 First run of nvim will install packer and all the plugins.
 Language servers need to be installed manually as required using :MasonInstall \<langservername\>
-and then added to comp.lua
+_Note_: quick-lint-js may need to be installed manually on Windows. If on windows, installation of
+clangd can also be skipped since it is already included in llvm-mingw.
