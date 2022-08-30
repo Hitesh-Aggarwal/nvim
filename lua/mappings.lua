@@ -40,10 +40,6 @@ map('i', "<m-k>", "<esc>:m .-2<CR>==i")
 map('n', '<m-j>', ':m .+1<CR>==')
 map('n', '<m-k>', ':m .-2<CR>==')
 
--- Stay in indent mode
-map('v', '<', '<gv')
-map('v', '>', '>gv')
-
 -- Go to next and previous buffers easily
 map('n', '<C-n>', ':bnext<CR>')
 map('n', '<C-p>', ':bprevious<CR>')
@@ -68,16 +64,3 @@ map('n', '<leader>fp', "<cmd>Telescope projects<CR>")
 
 -- Change directory to current file
 map('n', '<leader>d', ':lcd %:p:h<CR>')
-
--- Completion with the tab key
-vim.cmd([[
-function! CleverTab()
-    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-        return "\<Tab>"
-    else
-        return "\<C-P>"
-    endif
-endfunction
-]])
-
--- map('i', '<Tab>', 'CleverTab()', { expr = true })
