@@ -1,27 +1,27 @@
 -- Augroups
 local basics = vim.api.nvim_create_augroup("basics", { clear = true })
-local packer_user_config = vim.api.nvim_create_augroup("PackerUserConfig", {clear = true})
+local packer_user_config = vim.api.nvim_create_augroup("PackerUserConfig", { clear = true })
 
 -- autocommands
 vim.api.nvim_create_autocmd("BufWritePre", {
-  group = basics,
-  pattern = "*",
-  command = "%s/\\s\\+$//e",
-  desc = "Removes trailing whitespace before writing file"
+	group = basics,
+	pattern = "*",
+	command = "%s/\\s\\+$//e",
+	desc = "Removes trailing whitespace before writing file",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = basics,
-  pattern = "*",
-  command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
-  desc = "Disables automatic commenting on newline"
+	group = basics,
+	pattern = "*",
+	command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
+	desc = "Disables automatic commenting on newline",
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-  group = packer_user_config,
-  pattern = "packer.lua",
-  command = "source <afile> | PackerCompile",
-  desc = "Run :PackerCompile when packer.lua is written"
+	group = packer_user_config,
+	pattern = "packer.lua",
+	command = "source <afile> | PackerCompile",
+	desc = "Run :PackerCompile when packer.lua is written",
 })
 
 vim.cmd([[
