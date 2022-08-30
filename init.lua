@@ -1,7 +1,6 @@
 pcall(require, "impatient")
 require("settings")
 require("plugins")
-require("packer")
 require("mappings")
 require("autocommands")
 require("colorscheme")
