@@ -78,5 +78,6 @@ for _, lsp in ipairs(servers) do
 		on_attach = on_attach,
 		flags = lsp_flags,
 		capabilities = capabilities,
+		single_file_support = true,
 	})
 end
