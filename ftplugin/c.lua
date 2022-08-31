@@ -7,7 +7,3 @@ if (jit.os == 'Windows') then
 else
   vim.api.nvim_buf_set_keymap(0, 'n', '<leader>r', ':wall<CR>:TermExec cmd="make"<CR>' , { noremap = true })
 end
-
-local lo = vim.opt_local
-lo.foldmethod = "expr"
-lo.foldexpr = "nvim_treesitter#foldexpr()"

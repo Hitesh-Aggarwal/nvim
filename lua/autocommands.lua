@@ -1,6 +1,7 @@
 -- Augroups
 local basics = vim.api.nvim_create_augroup("basics", { clear = true })
 local packer_user_config = vim.api.nvim_create_augroup("PackerUserConfig", { clear = true })
+local betterfold = vim.api.nvim_create_augroup("Better Folding", { clear = true })
 
 -- autocommands
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -22,6 +23,18 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "plugin.lua",
 	command = "source <afile> | PackerCompile",
 	desc = "Run :PackerCompile when plugin.lua is written",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = betterfold,
+  pattern = "*",
+  callback = function()
+    if (require "nvim-treesitter.parsers".has_parser()) then
+      vim.opt_local.foldmethod = "expr"
+      vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
+    end
+  end,
+  desc = "Switch to treesitter folding if parser is available",
 })
 
 vim.cmd([[
