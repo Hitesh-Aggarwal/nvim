@@ -29,7 +29,11 @@ vim.api.nvim_create_autocmd("FileType", {
   group = betterfold,
   pattern = "*",
   callback = function()
-    if require("nvim-treesitter.parsers").has_parser() then
+    local status_ok, ntp = pcall(require, "nvim-treesitter.parsers")
+    if not status_ok then
+      return
+    end
+    if ntp.has_parser() then
       vim.opt_local.foldmethod = "expr"
       vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
     end
