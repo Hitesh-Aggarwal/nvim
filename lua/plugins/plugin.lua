@@ -62,6 +62,7 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("nvim-lua/plenary.nvim")
+	use("williamboman/mason-lspconfig.nvim")
 
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 
