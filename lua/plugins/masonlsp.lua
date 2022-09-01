@@ -30,7 +30,7 @@ if status_ok then
 end
 
 mson.setup({
-	ensure_installed = { "clangd", "quick-lint-js", "pyright", "tsserver", "emmet_ls" },
+	ensure_installed = { "clangd", "quick_lint_js", "pyright", "tsserver", "emmet_ls" },
 })
 
 mson.setup_handlers({
