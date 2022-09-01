@@ -49,7 +49,8 @@ Delete these folders if they exist.
 git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git ~/.config/nvim/
 ```
 
-First run of nvim will install packer and all the plugins.
-Language servers need to be installed manually as required using :MasonInstall \<langservername\>
-_Note_: quick-lint-js may need to be installed manually on Windows. If on windows, installation of
-clangd can also be skipped since it is already included in llvm-mingw.
+First run of neovim will install packer and all the plugins. In case of error run <code>:PackerSync</code>
+
+Second run will install treesitter parsers and lsp-servers.
+
+Formatters need to be installed manually using <code>:MasonInstall \<package-name\></code>
