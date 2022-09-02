@@ -51,6 +51,4 @@ git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git ~/.config/nvim/
 
 First run of neovim will install packer and all the plugins. In case of error run <code>:PackerSync</code>
 
-Second run will install treesitter parsers and lsp-servers.
-
-Formatters need to be installed manually using <code>:MasonInstall \<package-name\></code>
+Second run will install treesitter parsers, lsp servers and formatters.
