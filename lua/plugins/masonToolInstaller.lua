@@ -6,6 +6,6 @@ end
 masonTI.setup({
 	ensure_installed = {
 		"stylua",
-		"prettierd",
+		-- "prettierd",
 	},
 })
