@@ -1,63 +1,48 @@
-local sep = ''
-if (jit.os == 'Windows') then
-  sep = '\\'
-else
-  sep = '/'
-end
-
--- Helper function
-function read_file(filetype)
-  local path = vim.fn.stdpath('config') .. sep .. 'skel'.. sep .. filetype .. '.skel'
-  vim.cmd("0r " .. path)
-end
-
 -- Augroups
-local write_skeleton = vim.api.nvim_create_augroup("WriteSkeleton" , { clear = true })
 local basics = vim.api.nvim_create_augroup("basics", { clear = true })
-local packer_user_config = vim.api.nvim_create_augroup("PackerUserConfig", {clear = true})
+local packer_user_config = vim.api.nvim_create_augroup("PackerUserConfig", { clear = true })
+local betterfold = vim.api.nvim_create_augroup("Better Folding", { clear = true })
 
 -- autocommands
-vim.api.nvim_create_autocmd("BufNewFile", {
-  group = write_skeleton,
-  pattern = "*.c",
-  callback = function(args) read_file('c') end,
-  desc = "Skeleton code for c files"
-})
-
-vim.api.nvim_create_autocmd("BufNewFile", {
-  group = write_skeleton,
-  pattern = "*.cpp",
-  callback = function(args) read_file('cpp') end,
-  desc = "Skeleton code for cpp files"
-})
-
-vim.api.nvim_create_autocmd("BufNewFile", {
-  group = write_skeleton,
-  pattern = "*.html",
-  callback = function(args) read_file('html') end,
-  desc = "Skeleton code for html files"
-})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  group = basics,
-  pattern = "*",
-  command = "%s/\\s\\+$//e",
-  desc = "Removes trailing whitespace before writing file"
+	group = basics,
+	pattern = "*",
+	command = "%s/\\s\\+$//e",
+	desc = "Removes trailing whitespace before writing file",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = basics,
-  pattern = "*",
-  command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
-  desc = "Disables automatic commenting on newline"
+	group = basics,
+	pattern = "*",
+	command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
+	desc = "Disables automatic commenting on newline",
 })
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-  group = packer_user_config,
-  pattern = "plugins.lua",
-  command = "source <afile> | PackerCompile",
-  desc = "Run :PackerCompile when plugins.lua is written"
+	group = packer_user_config,
+	pattern = "plugins.lua",
+	command = "source <afile> | PackerCompile",
+	desc = "Run :PackerCompile when plugins.lua is written",
 })
+
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = betterfold,
+  pattern = "*",
+  callback = function()
+    local status_ok, ntp = pcall(require, "nvim-treesitter.parsers")
+    if not status_ok then
+      return
+    end
+    if ntp.has_parser() then
+      vim.opt_local.foldmethod = "expr"
+      vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
+    end
+  end,
+  desc = "Switch to treesitter folding if parser is available",
+})
+
 
 vim.cmd([[
   function! s:insert_gates()
