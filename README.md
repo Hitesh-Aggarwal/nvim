@@ -46,7 +46,7 @@ Delete these folders if they exist.
 - ~/.cache/nvim/
 
 ```
-git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git ~/.config/nvim/
+git clone -b minimal --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git ~/.config/nvim/
 ```
 
 First run of nvim will install packer and all the plugins. In case of error run <code>:PackerSync</code>
