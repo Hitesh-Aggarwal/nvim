@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local on_attach = function(client, bufnr)
-	if client.name == "tsserver" then
+	if client.name == "denols" then
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
 	end
