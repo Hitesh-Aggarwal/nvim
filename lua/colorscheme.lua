@@ -1,4 +1,4 @@
-local colorscheme = "tomorrow"
+local colorscheme = "one_monokai"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then

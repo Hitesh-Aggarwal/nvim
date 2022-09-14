@@ -43,7 +43,6 @@ end
 return packer.startup(function(use)
 	use("lewis6991/impatient.nvim")
 	use("wbthomason/packer.nvim")
-	use("LunarVim/colorschemes")
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
 	use("norcalli/nvim-colorizer.lua")
@@ -65,6 +64,7 @@ return packer.startup(function(use)
 	use("williamboman/mason-lspconfig.nvim")
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 	use("onsails/lspkind.nvim")
+	use("cpea2506/one_monokai.nvim")
 
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 
