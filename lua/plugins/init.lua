@@ -6,7 +6,6 @@ if not status_ok then
 end
 comment.setup()
 require("nvim-autopairs").setup()
-require("project_nvim").setup()
 require("lsp_signature").setup()
 require("mason").setup()
 require("plugins.masonlsp")

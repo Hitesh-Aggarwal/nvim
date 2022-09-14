@@ -68,7 +68,6 @@ map("n", "<leader>e", "<cmd>NvimTreeOpen<CR>")
 -- Telescope
 map("n", "<leader>ff", "<cmd>lua require('plugins.telescope').project_files()<CR>")
 map("n", "<leader>fr", "<cmd>lua require'telescope.builtin'.live_grep()<CR>")
-map("n", "<leader>fp", "<cmd>Telescope projects<CR>")
 
 -- Change directory to current file
 map("n", "<leader>d", ":lcd %:p:h<CR>")
