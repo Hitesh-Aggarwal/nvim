@@ -11,7 +11,7 @@ function map(mode, lhs, rhs, opts)
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	vim.keymap.set(mode, lhs, rhs, options)
 end
 
 -- Easy window switching
@@ -50,10 +50,10 @@ map("t", "<Esc>", "<C-\\><C-n>")
 map("n", "<leader>e", "<cmd>NvimTreeOpen<CR>")
 
 -- Telescope
-map("n", "<leader>ff", "<cmd>lua require('plugins.telescope').project_files()<CR>")
-map("n", "<leader>fr", "<cmd>lua require('plugins.telescope').live_grep()<CR>")
-map("n", "<leader>b", "<cmd>lua require('plugins.telescope').buffers()<CR>")
-map("n", "<leader>o", "<cmd>lua require('plugins.telescope').oldFiles()<CR>")
+map("n", "<leader>ff", require("plugins.telescope").project_files)
+map("n", "<leader>fr", require("plugins.telescope").live_grep)
+map("n", "<leader>b", require("plugins.telescope").buffers)
+map("n", "<leader>o", require("plugins.telescope").oldFiles)
 
 -- Change directory to current file
 map("n", "<leader>d", ":lcd %:p:h<CR>")
@@ -61,3 +61,6 @@ map("n", "<leader>d", ":lcd %:p:h<CR>")
 -- Session manager
 map("n", "<leader>fl", "<cmd>SessionManager load_session<CR>")
 map("n", "<leader>fd", "<cmd>SessionManager delete_session<CR>")
+
+-- Format
+map("n", "<space>f", vim.lsp.buf.formatting)

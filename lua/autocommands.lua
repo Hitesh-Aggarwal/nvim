@@ -83,3 +83,18 @@ vim.api.nvim_create_user_command("AutoRun", function()
 	local command = vim.split(vim.fn.input("Command: "), " ")
 	attatch_to_buffer(tonumber(bufnr), pattern, command)
 end, {})
+
+vim.api.nvim_create_user_command("AutoMagic", function()
+	local bufnr = tonumber(vim.fn.input("Bufnr: "))
+	local pattern = vim.fn.expand("%")
+	local filetype = string.lower(vim.bo.filetype)
+	if filetype == "javascript" then
+		attatch_to_buffer(bufnr, pattern, { "node", pattern })
+	elseif filetype == "python" then
+		attatch_to_buffer(bufnr, pattern, { "python3", pattern })
+	elseif filetype == "c" or filetype == "cpp" then
+		attatch_to_buffer(bufnr, pattern, { "make" })
+	else
+		print("Sorry, no magic available for current filetype")
+	end
+end, {})
