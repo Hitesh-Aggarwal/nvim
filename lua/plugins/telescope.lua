@@ -5,6 +5,11 @@ end
 
 telescope.setup({
 	extensions = {
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown({
+        previewer = false
+			}),
+		},
 		fzf = {
 			fuzzy = true, -- false will only do exact matching
 			override_generic_sorter = true, -- override the generic sorter
