@@ -65,6 +65,7 @@ return packer.startup(function(use)
 	use("onsails/lspkind.nvim")
 	use("cpea2506/one_monokai.nvim")
 	use("Shatur/neovim-session-manager")
+  use("nvim-telescope/telescope-ui-select.nvim")
 
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 

@@ -15,15 +15,28 @@ telescope.setup({
 	},
 })
 telescope.load_extension("fzf")
+telescope.load_extension("ui-select")
 
 local M = {}
 
+local builtin = require("telescope.builtin")
+local opts = require("telescope.themes").get_dropdown({ previewer = false }) -- define here if you want to define something
+
 M.project_files = function()
-	local opts = require("telescope.themes").get_dropdown({ previewer = false }) -- define here if you want to define something
-	local ok = pcall(require("telescope.builtin").git_files, opts)
+	local ok = pcall(builtin.git_files, opts)
 	if not ok then
-		require("telescope.builtin").find_files(opts)
+		builtin.find_files(opts)
 	end
+end
+
+M.live_grep = function()
+	builtin.live_grep()
+end
+M.buffers = function()
+	builtin.buffers(opts)
+end
+M.oldFiles = function()
+	builtin.oldfiles(opts)
 end
 
 return M
