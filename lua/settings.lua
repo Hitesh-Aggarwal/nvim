@@ -14,7 +14,7 @@ o.tabstop = 2
 o.shiftwidth = 2
 o.softtabstop = -1
 o.expandtab = true
-o.laststatus = 0
+o.laststatus = 3
 o.termguicolors = true
 o.cursorline = true
 o.undofile = true
@@ -30,5 +30,3 @@ o.signcolumn = "yes"
 
 g.mapleader = ";"
 g.maplocalleader = ";"
-g.do_filetype_lua = 1
-g.did_load_filetypes = 0
