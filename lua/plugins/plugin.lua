@@ -66,7 +66,8 @@ return packer.startup(function(use)
 	use("cpea2506/one_monokai.nvim")
 	use("Shatur/neovim-session-manager")
 	use("nvim-telescope/telescope-ui-select.nvim")
-	use("nvim-lualine/lualine.nvim")
+	use("feline-nvim/feline.nvim")
+	use("lewis6991/gitsigns.nvim")
 
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 
