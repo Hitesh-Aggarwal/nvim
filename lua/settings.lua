@@ -30,3 +30,5 @@ o.signcolumn = "yes"
 
 g.mapleader = ";"
 g.maplocalleader = ";"
+g.do_filetype_lua = 1
+g.did_load_filetypes = 0
