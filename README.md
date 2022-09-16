@@ -1,6 +1,6 @@
 # This is a repository of my config files for Neovim.
 
-### **CAUTION**: Neovim >= v0.8 _is required_
+### **CAUTION**: Neovim >= v0.7.2 _is required_
 
 ### Dependencies
 

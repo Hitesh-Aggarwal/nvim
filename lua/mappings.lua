@@ -63,4 +63,4 @@ map("n", "<leader>fl", "<cmd>SessionManager load_session<CR>")
 map("n", "<leader>fd", "<cmd>SessionManager delete_session<CR>")
 
 -- Format
-map("n", "<space>f", vim.lsp.buf.format)
+map("n", "<space>f", vim.lsp.buf.formatting, { buffer = bufnr })
