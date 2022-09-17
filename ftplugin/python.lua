@@ -1,4 +1,4 @@
-vim.api.nvim_buf_set_keymap(0, 'n', '<leader>r', ':w<CR>:TermExec cmd="python %"<CR>' , { noremap = true })
+vim.api.nvim_buf_set_keymap(0, 'n', '<leader>r', ':w<CR>:TermExec cmd="python3 %"<CR>' , { noremap = true })
 
 local lo = vim.opt_local
 lo.tabstop = 4

@@ -4,9 +4,12 @@ if not status_ok then
 end
 
 local formatting = nullls.builtins.formatting
+local code_actions = nullls.builtins.code_actions
 
 nullls.setup({
+	on_attach = require("plugins.lsp").on_attach,
 	sources = {
+		code_actions.gitsigns,
 		formatting.stylua,
 		formatting.prettierd,
 	},

@@ -8,7 +8,7 @@ if jit.os == "Windows" then
 end
 
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "c", "cpp", "python", "lua", "vim", "javascript" },
+	ensure_installed = { "c", "cpp", "python", "lua", "vim", "javascript" , "bash"},
 	sync_install = false,
 	highlight = {
 		enable = true,

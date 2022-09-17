@@ -5,3 +5,12 @@ if not status_ok then
 	vim.notify("colorscheme " .. colorscheme .. " not found!")
 	return
 end
+
+local one_ok, onemonokai = pcall(require, "one_monokai")
+if not one_ok then
+	return
+end
+
+onemonokai.setup({
+	transparent = true,
+})

@@ -11,7 +11,7 @@ function map(mode, lhs, rhs, opts)
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	vim.keymap.set(mode, lhs, rhs, options)
 end
 
 -- Easy window switching
@@ -40,24 +40,8 @@ map("i", "<m-k>", "<esc>:m .-2<CR>==i")
 map("n", "<m-j>", ":m .+1<CR>==")
 map("n", "<m-k>", ":m .-2<CR>==")
 
--- Go to next and previous buffers easily
-map("n", "<C-n>", ":bnext<CR>")
-map("n", "<C-p>", ":bprevious<CR>")
-map(
-	"n",
-	"<leader>b",
-	"<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({ previewer = false }))<CR>"
-)
-
 -- Quickly open config file
 map("n", "<leader>c", ":e <C-R>=stdpath('config') . '" .. sep .. "init.lua'<CR><CR>")
-
--- browse old files
-map(
-	"n",
-	"<leader>o",
-	"<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_dropdown({ previewer = false }))<CR>"
-)
 
 -- Escape key goes to normal mode in terminal
 map("t", "<Esc>", "<C-\\><C-n>")
@@ -66,11 +50,14 @@ map("t", "<Esc>", "<C-\\><C-n>")
 map("n", "<leader>e", "<cmd>NvimTreeOpen<CR>")
 
 -- Telescope
-map("n", "<leader>ff", "<cmd>lua require('plugins.telescope').project_files()<CR>")
-map("n", "<leader>fr", "<cmd>lua require'telescope.builtin'.live_grep()<CR>")
+map("n", "<leader>ff", require("plugins.telescope").project_files)
+map("n", "<leader>fr", require("plugins.telescope").live_grep)
+map("n", "<leader>b", require("plugins.telescope").buffers)
+map("n", "<leader>o", require("plugins.telescope").oldFiles)
 
 -- Change directory to current file
 map("n", "<leader>d", ":lcd %:p:h<CR>")
 
--- Format file
-map("n", "<space>f", ":lua vim.lsp.buf.formatting()<CR>")
+-- Session manager
+map("n", "<leader>fl", "<cmd>SessionManager load_session<CR>")
+map("n", "<leader>fd", "<cmd>SessionManager delete_session<CR>")
