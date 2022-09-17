@@ -15,7 +15,7 @@ local one_monokai = {
 	aqua = "#61afef",
 	darkblue = "#26292f",
 	dark_red = "#f75f5f",
-  gray = "#4b5261"
+	gray = "#4b5261",
 }
 
 local vi_mode_colors = {
@@ -104,12 +104,21 @@ local c = {
 	},
 	diagnostic_errors = {
 		provider = "diagnostic_errors",
+		hl = {
+			fg = "red",
+		},
 	},
 	diagnostic_warnings = {
 		provider = "diagnostic_warnings",
+		hl = {
+			fg = "yellow",
+		},
 	},
 	diagnostic_hints = {
 		provider = "diagnostic_hints",
+		hl = {
+			fg = "aqua",
+		},
 	},
 	diagnostic_info = {
 		provider = "diagnostic_info",
