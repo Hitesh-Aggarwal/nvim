@@ -15,6 +15,7 @@ local one_monokai = {
 	aqua = "#61afef",
 	darkblue = "#26292f",
 	dark_red = "#f75f5f",
+  gray = "#4b5261"
 }
 
 local vi_mode_colors = {
@@ -39,51 +40,51 @@ local c = {
 		},
 		hl = function()
 			return {
-				fg = "darkblue",
-				bg = require("feline.providers.vi_mode").get_mode_color(),
+				fg = require("feline.providers.vi_mode").get_mode_color(),
+				bg = "darkblue",
 				style = "bold",
 				name = "NeovimModeHLColor",
 			}
 		end,
 		left_sep = "block",
-		right_sep = "right_filled",
+		right_sep = "block",
 	},
 	gitBranch = {
 		provider = "git_branch",
 		hl = {
-			fg = "darkblue",
-			bg = "peanut",
+			fg = "peanut",
+			bg = "darkblue",
 			style = "bold",
 		},
-		left_sep = "left_filled",
-		right_sep = "right_filled",
+		left_sep = "block",
+		right_sep = "block",
 	},
 	gitDiffAdded = {
 		provider = "git_diff_added",
 		hl = {
-			fg = "darkblue",
-			bg = "green",
+			fg = "green",
+			bg = "darkblue",
 		},
-		left_sep = "left_rounded",
-		right_sep = "right_rounded",
+		left_sep = "block",
+		right_sep = "block",
 	},
 	gitDiffRemoved = {
 		provider = "git_diff_removed",
 		hl = {
-			fg = "darkblue",
-			bg = "red",
+			fg = "red",
+			bg = "darkblue",
 		},
-		left_sep = "left_rounded",
-		right_sep = "right_rounded",
+		left_sep = "block",
+		right_sep = "block",
 	},
 	gitDiffChanged = {
 		provider = "git_diff_changed",
 		hl = {
-			fg = "darkblue",
-			bg = "fg",
+			fg = "fg",
+			bg = "darkblue",
 		},
-		left_sep = "left_rounded",
-		right_sep = "right_rounded",
+		left_sep = "block",
+		right_sep = "right_filled",
 	},
 	separator = {
 		provider = "",
@@ -116,8 +117,8 @@ local c = {
 	lsp_client_names = {
 		provider = "lsp_client_names",
 		hl = {
-			fg = "darkblue",
-			bg = "purple",
+			fg = "purple",
+			bg = "darkblue",
 			style = "bold",
 		},
 		left_sep = "left_filled",
@@ -132,8 +133,8 @@ local c = {
 			},
 		},
 		hl = {
-			fg = "darkblue",
-			bg = "dark_red",
+			fg = "red",
+			bg = "darkblue",
 			style = "bold",
 		},
 		left_sep = "block",
@@ -142,8 +143,8 @@ local c = {
 	file_encoding = {
 		provider = "file_encoding",
 		hl = {
-			fg = "darkblue",
-			bg = "peanut",
+			fg = "peanut",
+			bg = "darkblue",
 			style = "italic",
 		},
 		left_sep = "block",
@@ -152,8 +153,8 @@ local c = {
 	position = {
 		provider = "position",
 		hl = {
-			fg = "darkblue",
-			bg = "green",
+			fg = "green",
+			bg = "darkblue",
 			style = "bold",
 		},
 		left_sep = "block",
@@ -162,8 +163,8 @@ local c = {
 	line_percentage = {
 		provider = "line_percentage",
 		hl = {
-			fg = "darkblue",
-			bg = "aqua",
+			fg = "aqua",
+			bg = "darkblue",
 			style = "bold",
 		},
 		left_sep = "block",
