@@ -28,7 +28,7 @@ o.splitright = true
 o.history = 50
 o.signcolumn = "yes"
 
-g.mapleader = " "
-g.maplocalleader = " "
+g.mapleader = ";"
+g.maplocalleader = ";"
 g.do_filetype_lua = 1
 g.did_load_filetypes = 0

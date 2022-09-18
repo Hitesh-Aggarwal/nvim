@@ -40,6 +40,14 @@ if not status_ok then
 	return
 end
 
+packer.init({
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
+})
+
 return packer.startup(function(use)
 	use("lewis6991/impatient.nvim")
 	use("wbthomason/packer.nvim")
@@ -48,13 +56,13 @@ return packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 	use("neovim/nvim-lspconfig")
 
-  use("L3MON4D3/LuaSnip")
-  use("hrsh7th/nvim-cmp")
+	use("L3MON4D3/LuaSnip")
+	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
-  use("hrsh7th/cmp-nvim-lua")
-  use("saadparwaiz1/cmp_luasnip")
+	use("hrsh7th/cmp-nvim-lua")
+	use("saadparwaiz1/cmp_luasnip")
 
 	use("rafamadriz/friendly-snippets")
 	use("williamboman/mason.nvim")
