@@ -79,6 +79,7 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-ui-select.nvim")
 	use("feline-nvim/feline.nvim")
 	use("lewis6991/gitsigns.nvim")
+  use("Hitesh-Aggarwal/feline_one_monokai")
 
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 
