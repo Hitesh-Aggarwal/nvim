@@ -41,21 +41,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	desc = "Switch to treesitter folding if parser is available",
 })
 
-vim.cmd([[
-  function! s:insert_gates()
-    let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
-    execute "normal! i#ifndef " . gatename
-    execute "normal! o#define " . gatename . " "
-    execute "normal! Go#endif /* " . gatename . " */"
-    normal! kk
-  endfunction
-
-  augroup insert_header
-  au!
-  autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
-  augroup END
-]])
-
 local attatch_to_buffer = function(output_bufnr, pattern, command)
 	vim.api.nvim_create_autocmd("BufWritePost", {
 		group = vim.api.nvim_create_augroup("magic", { clear = true }),
@@ -98,3 +83,12 @@ vim.api.nvim_create_user_command("AutoMagic", function()
 		print("Sorry, no magic available for current filetype")
 	end
 end, {})
+
+local insert_gates = function()
+	local gatename = vim.fn.substitute(string.upper(vim.fn.expand("%:t")), "\\.", "_", "g")
+	vim.api.nvim_buf_set_lines(0, 0, 0, false, { "#ifndef " .. gatename })
+	vim.api.nvim_buf_set_lines(0, 1, 1, false, { "#define " .. gatename })
+	vim.api.nvim_buf_set_lines(0, -1, -1, false, { "#endif /* " .. gatename .. " */" })
+end
+
+vim.api.nvim_create_user_command("HeaderGates", insert_gates, {})
