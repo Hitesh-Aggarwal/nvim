@@ -47,7 +47,7 @@ map("n", "<leader>c", ":e <C-R>=stdpath('config') . '" .. sep .. "init.lua'<CR><
 map("t", "<Esc>", "<C-\\><C-n>")
 
 -- Open NvimTree
-map("n", "<leader>e", "<cmd>NvimTreeOpen<CR>")
+map("n", "<leader>fe", "<cmd>NvimTreeOpen<CR>")
 
 -- Telescope
 map("n", "<leader>ff", require("plugins.telescope").project_files)
@@ -59,5 +59,5 @@ map("n", "<leader>o", require("plugins.telescope").oldFiles)
 map("n", "<leader>d", ":lcd %:p:h<CR>")
 
 -- Session manager
-map("n", "<leader>fl", "<cmd>SessionManager load_session<CR>")
-map("n", "<leader>fd", "<cmd>SessionManager delete_session<CR>")
+map("n", "<leader>sl", "<cmd>SessionManager load_session<CR>")
+map("n", "<leader>sd", "<cmd>SessionManager delete_session<CR>")

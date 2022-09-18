@@ -13,9 +13,8 @@ local one_monokai = {
 	peanut = "#f6d5a4",
 	red = "#e06c75",
 	aqua = "#61afef",
-	darkblue = "#26292f",
+	darkblue = "#282c34",
 	dark_red = "#f75f5f",
-	gray = "#4b5261",
 }
 
 local vi_mode_colors = {
@@ -152,7 +151,7 @@ local c = {
 	file_encoding = {
 		provider = "file_encoding",
 		hl = {
-			fg = "peanut",
+			fg = "orange",
 			bg = "darkblue",
 			style = "italic",
 		},
@@ -192,8 +191,8 @@ local left = {
 	c.vim_mode,
 	c.gitBranch,
 	c.gitDiffAdded,
+  c.gitDiffRemoved,
 	c.gitDiffChanged,
-	c.gitDiffRemoved,
 	c.separator,
 }
 
