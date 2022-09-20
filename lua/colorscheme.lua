@@ -14,7 +14,7 @@ end
 onemonokai.setup({
 	themes = function()
 		return {
-			Normal = { bg = "#1e222a" },
+			Normal = { bg = "#1e222a" , fg = "#abb2bf"},
 		}
 	end,
 })
