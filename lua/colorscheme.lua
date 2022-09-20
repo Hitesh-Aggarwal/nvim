@@ -12,5 +12,9 @@ if not one_ok then
 end
 
 onemonokai.setup({
-	transparent = true,
+	themes = function()
+		return {
+			Normal = { bg = "#1e222a" },
+		}
+	end,
 })
