@@ -1,17 +1,17 @@
 local sep = ""
 if jit.os == "Windows" then
-	sep = "\\"
+  sep = "\\"
 else
-	sep = "/"
+  sep = "/"
 end
 
 -- Functional wrapper for mapping custom keybindings
-local map = function (mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.keymap.set(mode, lhs, rhs, options)
+local map = function(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, options)
 end
 
 -- Easy window switching
