@@ -64,7 +64,7 @@ cmp.setup {
     { name = "buffer" },
     { name = "path" },
     { name = "luasnip" }, -- For luasnip users.
-    { name = "nvim_lua" },
+    -- { name = "nvim_lua" },
     -- { name = 'ultisnips' }, -- For ultisnips users.
     -- { name = 'snippy' }, -- For snippy users.
   },
