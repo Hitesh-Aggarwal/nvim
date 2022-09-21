@@ -7,7 +7,7 @@ local lsp = require("plugins.lsp")
 lsp.setup()
 
 mson.setup({
-	ensure_installed = { "clangd", "pyright", "emmet_ls", "denols" },
+	ensure_installed = { "clangd", "pyright", "emmet_ls", "denols" , "sumneko_lua"},
 })
 
 mson.setup_handlers({

@@ -61,9 +61,9 @@ local function lsp_keymaps(bufnr)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 	vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
-	vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-	vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+	vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, bufopts)
+	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
+	vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
 end
 
 M.on_attach = function(client, bufnr)
@@ -73,8 +73,6 @@ M.on_attach = function(client, bufnr)
 	end
   lsp_keymaps(bufnr)
 end
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local status_ok, cmpNvimLsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
