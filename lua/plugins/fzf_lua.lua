@@ -5,6 +5,8 @@ end
 
 local opts = {
   previewer = false,
+  git_icons = false,
+  file_icons = false,
   winopts = {
     height = 0.55,
     width = 0.50,
@@ -20,6 +22,10 @@ fzf_lua.setup {
   },
   oldfiles = opts,
   buffers = opts,
+  grep = {
+    git_icons = false,
+    file_icons = false,
+  },
 }
 
 local M = {}
