@@ -11,11 +11,12 @@ require("mason").setup()
 require("gitsigns").setup()
 require("fidget").setup()
 require("lua-dev").setup()
+require "plugins.dressing"
 require "plugins.masonlsp"
 require "plugins.masonToolInstaller"
 require "plugins.colorizer"
 require "plugins.treesitter"
-require "plugins.telescope"
+require "plugins.fzf_lua"
 require "plugins.toggleterm"
 require "plugins.nvimtree"
 require "plugins.cmp"

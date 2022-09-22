@@ -1,13 +1,10 @@
 local fn = vim.fn
 
 local sep = ""
-local tool = ""
 if jit.os == "Windows" then
   sep = "\\"
-  tool = "mingw32-make"
 else
   sep = "/"
-  tool = "make"
 end
 
 -- Automatically install packer
@@ -75,27 +72,21 @@ return packer.startup(function(use)
   use "onsails/lspkind.nvim"
   use "cpea2506/one_monokai.nvim"
   use "Shatur/neovim-session-manager"
-  use "nvim-telescope/telescope-ui-select.nvim"
   use "feline-nvim/feline.nvim"
   use "lewis6991/gitsigns.nvim"
   use "Hitesh-Aggarwal/feline_one_monokai.nvim"
   use "j-hui/fidget.nvim"
   use "folke/lua-dev.nvim"
+  use "stevearc/dressing.nvim"
+  use "ibhagwan/fzf-lua"
 
   use { "akinsho/toggleterm.nvim", tag = "v2.*" }
-
-  use { "nvim-telescope/telescope-fzf-native.nvim", run = tool }
 
   use {
     "nvim-treesitter/nvim-treesitter",
     run = function()
       require("nvim-treesitter.install").update { with_sync = true }
     end,
-  }
-
-  use {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.0",
   }
 
   if PACKER_BOOTSTRAP then
