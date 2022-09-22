@@ -77,7 +77,6 @@ return packer.startup(function(use)
   use "Hitesh-Aggarwal/feline_one_monokai.nvim"
   use "j-hui/fidget.nvim"
   use "folke/lua-dev.nvim"
-  use "stevearc/dressing.nvim"
   use "ibhagwan/fzf-lua"
 
   use { "akinsho/toggleterm.nvim", tag = "v2.*" }

@@ -11,7 +11,6 @@ require("mason").setup()
 require("gitsigns").setup()
 require("fidget").setup()
 require("lua-dev").setup()
-require "plugins.dressing"
 require "plugins.masonlsp"
 require "plugins.masonToolInstaller"
 require "plugins.colorizer"
