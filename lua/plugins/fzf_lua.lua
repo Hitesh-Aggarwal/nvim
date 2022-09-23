@@ -35,26 +35,3 @@ fzf_lua.setup {
     },
   },
 }
-
-local M = {}
-
-M.project_files = function()
-  local _ = vim.fn.system "git rev-parse --is-inside-work-tree"
-  if vim.fn.eval "v:shell_error" == 0 then
-    fzf_lua.git_files()
-  else
-    fzf_lua.files()
-  end
-end
-
-M.live_grep = function()
-  fzf_lua.live_grep()
-end
-M.buffers = function()
-  fzf_lua.buffers()
-end
-M.oldFiles = function()
-  fzf_lua.oldfiles()
-end
-
-return M

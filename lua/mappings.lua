@@ -49,15 +49,19 @@ map("t", "<Esc>", "<C-\\><C-n>")
 -- Open NvimTree
 map("n", "<leader>e", "<cmd>NvimTreeOpen<CR>")
 
--- Fzf-lua
-map("n", "<leader>ff", require("plugins.fzf_lua").project_files)
-map("n", "<leader>fr", require("plugins.fzf_lua").live_grep)
-map("n", "<leader>b", require("plugins.fzf_lua").buffers)
-map("n", "<leader>o", require("plugins.fzf_lua").oldFiles)
-
 -- Change directory to current file
 map("n", "<leader>d", ":lcd %:p:h<CR>")
 
 -- Session manager
 map("n", "<leader>sl", "<cmd>SessionManager load_session<CR>")
 map("n", "<leader>sd", "<cmd>SessionManager delete_session<CR>")
+
+-- Fzf-lua
+local fzf_ok, fzf_lua = pcall(require, "fzf-lua")
+if not fzf_ok then
+  return
+end
+map("n", "<leader>ff", fzf_lua.files)
+map("n", "<leader>fr", fzf_lua.live_grep)
+map("n", "<leader>b", fzf_lua.buffers)
+map("n", "<leader>o", fzf_lua.oldfiles)
