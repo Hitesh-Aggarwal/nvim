@@ -60,7 +60,9 @@ local function lsp_keymaps(bufnr)
   vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
   vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
   vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-  vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set("n", "<space>f", function()
+    vim.lsp.buf.format { async = true }
+  end, bufopts)
   vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, bufopts)
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
@@ -68,8 +70,8 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "denols" or client.name == "sumneko_lua" then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
   end
   lsp_keymaps(bufnr)
 end

@@ -7,7 +7,6 @@ o.wrap = false
 o.foldmethod = "syntax"
 o.path = o.path + "**"
 o.confirm = true
-o.hlsearch = false
 o.ignorecase = true
 o.smartcase = true
 o.tabstop = 2
@@ -30,5 +29,3 @@ o.signcolumn = "yes"
 
 g.mapleader = ";"
 g.maplocalleader = ";"
-g.do_filetype_lua = 1
-g.did_load_filetypes = 0

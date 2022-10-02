@@ -72,12 +72,12 @@ return packer.startup(function(use)
   use "onsails/lspkind.nvim"
   use "cpea2506/one_monokai.nvim"
   use "Shatur/neovim-session-manager"
-  use "feline-nvim/feline.nvim"
   use "lewis6991/gitsigns.nvim"
-  use "Hitesh-Aggarwal/feline_one_monokai.nvim"
   use "j-hui/fidget.nvim"
   use "folke/lua-dev.nvim"
   use "ibhagwan/fzf-lua"
+  use "feline-nvim/feline.nvim"
+  use "Hitesh-Aggarwal/feline_one_monokai.nvim"
 
   use { "akinsho/toggleterm.nvim", tag = "v2.*" }
 
