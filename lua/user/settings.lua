@@ -1,11 +1,11 @@
-local o = vim.opt
+local o = vim.o
 local g = vim.g
 
 o.number = true
 o.lazyredraw = true
 o.wrap = false
 o.foldmethod = "syntax"
-o.path = o.path + "**"
+vim.opt.path = vim.opt.path + "**"
 o.confirm = true
 o.ignorecase = true
 o.smartcase = true
@@ -26,6 +26,7 @@ o.splitbelow = true
 o.splitright = true
 o.history = 50
 o.signcolumn = "yes"
+o.hlsearch = false
 
 g.mapleader = ";"
 g.maplocalleader = ";"
