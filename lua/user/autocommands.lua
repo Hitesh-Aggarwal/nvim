@@ -34,8 +34,8 @@ vim.api.nvim_create_autocmd("FileType", {
       return
     end
     if ntp.has_parser() then
-      vim.bo.foldmethod = "expr"
-      vim.bo.foldexpr = "nvim_treesitter#foldexpr()"
+      vim.opt_local.foldmethod = "expr"
+      vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
     end
   end,
   desc = "Switch to treesitter folding if parser is available",
