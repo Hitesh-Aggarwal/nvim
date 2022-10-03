@@ -5,7 +5,6 @@ if not status_ok then
   return
 end
 comment.setup()
-require("feline").winbar.setup()
 require("Comment").setup()
 require("nvim-autopairs").setup()
 require("lsp_signature").setup()
@@ -13,6 +12,7 @@ require("mason").setup()
 require("gitsigns").setup()
 require("fidget").setup()
 require("lua-dev").setup {}
+require "user.plugins.feline"
 require "user.plugins.masonlsp"
 require "user.plugins.masonToolInstaller"
 require "user.plugins.colorizer"

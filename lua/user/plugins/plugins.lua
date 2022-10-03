@@ -19,6 +19,7 @@ local install_path = fn.stdpath "data"
   .. "start"
   .. sep
   .. "packer.nvim"
+
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system {
     "git",
@@ -77,7 +78,6 @@ return packer.startup(function(use)
   use "folke/lua-dev.nvim"
   use "ibhagwan/fzf-lua"
   use "feline-nvim/feline.nvim"
-  use "Hitesh-Aggarwal/feline_one_monokai.nvim"
 
   use { "akinsho/toggleterm.nvim", tag = "v2.*" }
 
