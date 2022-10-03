@@ -5,7 +5,7 @@ o.number = true
 o.lazyredraw = true
 o.wrap = false
 o.foldmethod = "syntax"
-vim.opt.path = vim.opt.path + "**"
+vim.opt.path:append("**")
 o.confirm = true
 o.ignorecase = true
 o.smartcase = true
