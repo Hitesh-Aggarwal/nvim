@@ -12,6 +12,7 @@ require("mason").setup()
 require("gitsigns").setup()
 require("fidget").setup()
 require("lua-dev").setup {}
+require "user.plugins.session_manager"
 require "user.plugins.feline"
 require "user.plugins.masonlsp"
 require "user.plugins.masonToolInstaller"
