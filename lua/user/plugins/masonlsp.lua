@@ -10,7 +10,7 @@ end
 lsp.setup()
 
 mson.setup {
-  ensure_installed = { "clangd", "pyright", "emmet_ls", "denols", "sumneko_lua" },
+  ensure_installed = { "clangd", "pyright", "emmet_ls", "tsserver", "sumneko_lua" , "cssls"},
 }
 
 mson.setup_handlers {

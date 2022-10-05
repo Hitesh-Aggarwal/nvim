@@ -69,7 +69,7 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "denols" or client.name == "sumneko_lua" then
+  if client.name == "tsserver" or client.name == "sumneko_lua" then
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
   end
