@@ -43,9 +43,6 @@ map("n", "<m-k>", ":m .-2<CR>==")
 -- Quickly open config file
 map("n", "<leader>c", ":e <C-R>=stdpath('config') . '" .. sep .. "init.lua'<CR><CR>")
 
--- Escape key goes to normal mode in terminal
-map("t", "<Esc>", "<C-\\><C-n>")
-
 -- Open NvimTree
 map("n", "<leader>e", "<cmd>NvimTreeOpen<CR>")
 
