@@ -8,7 +8,6 @@
 --
 local one_ok, onemonokai = pcall(require, "one_monokai")
 if not one_ok then
-  print("one_monokai colorscheme not found")
   return
 end
 

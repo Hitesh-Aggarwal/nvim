@@ -74,6 +74,9 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.document_range_formatting = false
   end
   lsp_keymaps(bufnr)
+  if client.server_capabilities.documentSymbolProvider then
+    require("nvim-navic").attach(client, bufnr)
+  end
 end
 
 local status_ok, cmpNvimLsp = pcall(require, "cmp_nvim_lsp")

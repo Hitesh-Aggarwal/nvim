@@ -5,7 +5,8 @@ end
 
 local one_monokai = {
   fg = "#abb2bf",
-  bg = "#1e2024",
+  bg = "#282c34",
+  bg2 = "#1e222a",
   green = "#98c379",
   yellow = "#e5c07b",
   purple = "#c678dd",
@@ -13,46 +14,60 @@ local one_monokai = {
   peanut = "#f6d5a4",
   red = "#e06c75",
   aqua = "#61afef",
-  darkblue = "#282c34",
   dark_red = "#f75f5f",
 }
 
-local vi_mode_colors = {
-  NORMAL = "green",
-  OP = "green",
-  INSERT = "yellow",
-  VISUAL = "purple",
-  LINES = "orange",
-  BLOCK = "dark_red",
-  REPLACE = "red",
-  COMMAND = "aqua",
-}
-
-local c = {
-  vim_mode = {
-    provider = {
-      name = "vi_mode",
-      opts = {
-        show_mode_name = true,
-        -- padding = "center",
+local w = {
+  file_name = {
+    provider = "file_info",
+    hl = {
+      fg = "aqua",
+      bg = "bg2",
+    },
+  },
+  navic = {
+    provider = require("nvim-navic").get_location,
+    enabled = require("nvim-navic").is_available,
+    hl = {
+      fg = "peanut",
+      bg = "bg2",
+    },
+  },
+  separator = {
+    provider = " ",
+    hl = {
+      bg = "bg2",
+    },
+    right_sep = {
+      str = "slant_right_thin",
+      hl = {
+        bg = "bg2",
       },
     },
-    hl = function()
-      return {
-        fg = require("feline.providers.vi_mode").get_mode_color(),
-        bg = "darkblue",
-        style = "bold",
-        name = "NeovimModeHLColor",
-      }
-    end,
-    left_sep = "block",
-    right_sep = "block",
+  },
+  space = {
+    provider = " ",
+    hl = {
+      bg = "bg2",
+    },
+  },
+}
+
+local s = {
+  end_pts = {
+    provider = " ",
+    hl = {
+      fg = "aqua",
+      bg = "aqua",
+    },
+  },
+  separator = {
+    provider = " ",
   },
   gitBranch = {
     provider = "git_branch",
     hl = {
-      fg = "peanut",
-      bg = "darkblue",
+      fg = "purple",
       style = "bold",
     },
     left_sep = "block",
@@ -62,36 +77,24 @@ local c = {
     provider = "git_diff_added",
     hl = {
       fg = "green",
-      bg = "darkblue",
     },
-    left_sep = "block",
-    right_sep = "block",
   },
   gitDiffRemoved = {
     provider = "git_diff_removed",
     hl = {
       fg = "red",
-      bg = "darkblue",
     },
-    left_sep = "block",
-    right_sep = "block",
   },
   gitDiffChanged = {
     provider = "git_diff_changed",
     hl = {
       fg = "fg",
-      bg = "darkblue",
     },
-    left_sep = "block",
-    right_sep = "right_filled",
-  },
-  separator = {
-    provider = "",
   },
   diagnostic_errors = {
     provider = "diagnostic_errors",
     hl = {
-      fg = "red",
+      fg = "dark_red",
     },
   },
   diagnostic_warnings = {
@@ -112,11 +115,8 @@ local c = {
   lsp_client_names = {
     provider = "lsp_client_names",
     hl = {
-      fg = "purple",
-      bg = "darkblue",
-      style = "bold",
+      fg = "peanut",
     },
-    left_sep = "left_filled",
     right_sep = "block",
   },
   file_type = {
@@ -127,11 +127,6 @@ local c = {
         case = "titlecase",
       },
     },
-    hl = {
-      fg = "red",
-      bg = "darkblue",
-      style = "bold",
-    },
     left_sep = "block",
     right_sep = "block",
   },
@@ -139,8 +134,6 @@ local c = {
     provider = "position",
     hl = {
       fg = "green",
-      bg = "darkblue",
-      style = "bold",
     },
     left_sep = "block",
     right_sep = "block",
@@ -148,50 +141,39 @@ local c = {
   line_percentage = {
     provider = "line_percentage",
     hl = {
-      fg = "aqua",
-      bg = "darkblue",
-      style = "bold",
+      fg = "orange",
     },
     left_sep = "block",
     right_sep = "block",
   },
-  scroll_bar = {
-    provider = "scroll_bar",
-    hl = {
-      fg = "yellow",
-      style = "bold",
-    },
-  },
 }
 
 local left = {
-  c.vim_mode,
-  c.gitBranch,
-  c.gitDiffAdded,
-  c.gitDiffRemoved,
-  c.gitDiffChanged,
-  c.separator,
-}
-
-local middle = {
-  c.diagnostic_errors,
-  c.diagnostic_warnings,
-  c.diagnostic_info,
-  c.diagnostic_hints,
+  s.end_pts,
+  s.gitBranch,
+  s.file_type,
+  s.separator,
+  s.gitDiffAdded,
+  s.gitDiffRemoved,
+  s.gitDiffChanged,
+  s.separator,
+  s.separator,
+  s.diagnostic_errors,
+  s.diagnostic_warnings,
+  s.diagnostic_info,
+  s.diagnostic_hints,
 }
 
 local right = {
-  c.lsp_client_names,
-  c.file_type,
-  c.position,
-  c.line_percentage,
-  c.scroll_bar,
+  s.lsp_client_names,
+  s.position,
+  s.line_percentage,
+  s.end_pts,
 }
 
 local components = {
   active = {
     left,
-    middle,
     right,
   },
   inactive = {
@@ -200,10 +182,26 @@ local components = {
   },
 }
 
-feline.setup({
+local components_winbar = {
+  active = {
+    {
+      w.file_name,
+      w.separator,
+      w.space,
+      w.navic,
+    },
+  },
+  inactive = {
+    {
+      w.file_name,
+      w.separator,
+    },
+  },
+}
+
+feline.setup {
   components = components,
   theme = one_monokai,
-  vi_mode_colors = vi_mode_colors,
-})
+}
 
-feline.winbar.setup()
+feline.winbar.setup { components = components_winbar }
