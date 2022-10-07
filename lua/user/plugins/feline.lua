@@ -29,7 +29,6 @@ local w = {
     provider = require("nvim-navic").get_location,
     enabled = require("nvim-navic").is_available,
     hl = {
-      fg = "peanut",
       bg = "bg2",
     },
   },
