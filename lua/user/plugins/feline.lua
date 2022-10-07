@@ -37,6 +37,7 @@ local w = {
     hl = {
       bg = "bg2",
     },
+    enabled = require("nvim-navic").is_available,
     right_sep = {
       str = "slant_right_thin",
       hl = {
