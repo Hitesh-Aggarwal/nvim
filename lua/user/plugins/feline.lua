@@ -171,14 +171,25 @@ local right = {
   s.end_pts,
 }
 
+local left_inactive = {
+  s.end_pts,
+  s.file_type,
+}
+
+local right_inactive = {
+  s.position,
+  s.line_percentage,
+  s.end_pts,
+}
+
 local components = {
   active = {
     left,
     right,
   },
   inactive = {
-    left,
-    right,
+    left_inactive,
+    right_inactive,
   },
 }
 
@@ -194,7 +205,6 @@ local components_winbar = {
   inactive = {
     {
       w.file_name,
-      w.separator,
     },
   },
 }
