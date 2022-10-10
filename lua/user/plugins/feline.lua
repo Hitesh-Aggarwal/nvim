@@ -31,6 +31,13 @@ local w = {
     hl = {
       bg = "bg2",
     },
+    left_sep = {
+      str = "block",
+      hl = {
+        fg = "bg2",
+        bg = "bg2",
+      },
+    },
   },
   separator = {
     provider = " ",
@@ -39,30 +46,39 @@ local w = {
     },
     enabled = require("nvim-navic").is_available,
     right_sep = {
-      str = "slant_right_thin",
+      str = "slant_left_thin",
       hl = {
         bg = "bg2",
       },
     },
   },
-  space = {
-    provider = " ",
-    hl = {
-      bg = "bg2",
-    },
-  },
 }
 
 local s = {
+  provider_and_fg = function(name, color)
+    return {
+      provider = name,
+      hl = {
+        fg = color,
+      },
+    }
+  end,
+  provider_and_fg_space = function(name, color)
+    return {
+      provider = name,
+      hl = {
+        fg = color,
+      },
+      left_sep = "block",
+      right_sep = "block",
+    }
+  end,
   end_pts = {
     provider = " ",
     hl = {
       fg = "aqua",
       bg = "aqua",
     },
-  },
-  separator = {
-    provider = " ",
   },
   gitBranch = {
     provider = "git_branch",
@@ -71,52 +87,6 @@ local s = {
       style = "bold",
     },
     left_sep = "block",
-    right_sep = "block",
-  },
-  gitDiffAdded = {
-    provider = "git_diff_added",
-    hl = {
-      fg = "green",
-    },
-  },
-  gitDiffRemoved = {
-    provider = "git_diff_removed",
-    hl = {
-      fg = "red",
-    },
-  },
-  gitDiffChanged = {
-    provider = "git_diff_changed",
-    hl = {
-      fg = "fg",
-    },
-  },
-  diagnostic_errors = {
-    provider = "diagnostic_errors",
-    hl = {
-      fg = "dark_red",
-    },
-  },
-  diagnostic_warnings = {
-    provider = "diagnostic_warnings",
-    hl = {
-      fg = "yellow",
-    },
-  },
-  diagnostic_hints = {
-    provider = "diagnostic_hints",
-    hl = {
-      fg = "aqua",
-    },
-  },
-  diagnostic_info = {
-    provider = "diagnostic_info",
-  },
-  lsp_client_names = {
-    provider = "lsp_client_names",
-    hl = {
-      fg = "peanut",
-    },
     right_sep = "block",
   },
   file_type = {
@@ -130,44 +100,27 @@ local s = {
     left_sep = "block",
     right_sep = "block",
   },
-  position = {
-    provider = "position",
-    hl = {
-      fg = "green",
-    },
-    left_sep = "block",
-    right_sep = "block",
-  },
-  line_percentage = {
-    provider = "line_percentage",
-    hl = {
-      fg = "orange",
-    },
-    left_sep = "block",
-    right_sep = "block",
-  },
 }
 
 local left = {
   s.end_pts,
   s.gitBranch,
   s.file_type,
-  s.separator,
-  s.gitDiffAdded,
-  s.gitDiffRemoved,
-  s.gitDiffChanged,
-  s.separator,
-  s.separator,
-  s.diagnostic_errors,
-  s.diagnostic_warnings,
-  s.diagnostic_info,
-  s.diagnostic_hints,
+  s.provider_and_fg(" ", "fg"),
+  s.provider_and_fg("git_diff_added", "green"),
+  s.provider_and_fg("git_diff_removed", "red"),
+  s.provider_and_fg("git_diff_changed", "fg"),
+  s.provider_and_fg_space(" ", "fg"),
+  s.provider_and_fg("diagnostic_errors", "dark_red"),
+  s.provider_and_fg("diagnostic_warnings", "yellow"),
+  s.provider_and_fg("diagnostic_hints", "aqua"),
+  s.provider_and_fg("diagnostic_info", "fg"),
 }
 
 local right = {
-  s.lsp_client_names,
-  s.position,
-  s.line_percentage,
+  s.provider_and_fg_space("lsp_client_names", "peanut"),
+  s.provider_and_fg_space("position","green"),
+  s.provider_and_fg_space("line_percentage", "orange"),
   s.end_pts,
 }
 
@@ -177,8 +130,8 @@ local left_inactive = {
 }
 
 local right_inactive = {
-  s.position,
-  s.line_percentage,
+  s.provider_and_fg_space("position", "green"),
+  s.provider_and_fg_space("line_percentage", "orange"),
   s.end_pts,
 }
 
@@ -198,7 +151,6 @@ local components_winbar = {
     {
       w.file_name,
       w.separator,
-      w.space,
       w.navic,
     },
   },
