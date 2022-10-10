@@ -55,22 +55,15 @@ local w = {
 }
 
 local s = {
-  provider_and_fg = function(name, color)
+  component = function(name, color, separator)
+    separator = separator or ""
     return {
       provider = name,
       hl = {
         fg = color,
       },
-    }
-  end,
-  provider_and_fg_space = function(name, color)
-    return {
-      provider = name,
-      hl = {
-        fg = color,
-      },
-      left_sep = "block",
-      right_sep = "block",
+      left_sep = separator,
+      right_sep =  separator,
     }
   end,
   end_pts = {
@@ -106,21 +99,21 @@ local left = {
   s.end_pts,
   s.gitBranch,
   s.file_type,
-  s.provider_and_fg(" ", "fg"),
-  s.provider_and_fg("git_diff_added", "green"),
-  s.provider_and_fg("git_diff_removed", "red"),
-  s.provider_and_fg("git_diff_changed", "fg"),
-  s.provider_and_fg_space(" ", "fg"),
-  s.provider_and_fg("diagnostic_errors", "dark_red"),
-  s.provider_and_fg("diagnostic_warnings", "yellow"),
-  s.provider_and_fg("diagnostic_hints", "aqua"),
-  s.provider_and_fg("diagnostic_info", "fg"),
+  s.component(" ", "fg"),
+  s.component("git_diff_added", "green"),
+  s.component("git_diff_removed", "red"),
+  s.component("git_diff_changed", "fg"),
+  s.component(" ", "fg", "block"),
+  s.component("diagnostic_errors", "dark_red"),
+  s.component("diagnostic_warnings", "yellow"),
+  s.component("diagnostic_hints", "aqua"),
+  s.component("diagnostic_info", "fg"),
 }
 
 local right = {
-  s.provider_and_fg_space("lsp_client_names", "peanut"),
-  s.provider_and_fg_space("position","green"),
-  s.provider_and_fg_space("line_percentage", "orange"),
+  s.component("lsp_client_names", "peanut", "block"),
+  s.component("position", "green", "block"),
+  s.component("line_percentage", "orange", "block"),
   s.end_pts,
 }
 
@@ -130,8 +123,8 @@ local left_inactive = {
 }
 
 local right_inactive = {
-  s.provider_and_fg_space("position", "green"),
-  s.provider_and_fg_space("line_percentage", "orange"),
+  s.component("position", "green", "block"),
+  s.component("line_percentage", "orange", "block"),
   s.end_pts,
 }
 
