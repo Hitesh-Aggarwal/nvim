@@ -79,6 +79,7 @@ return packer.startup(function(use)
   use "ibhagwan/fzf-lua"
   use "feline-nvim/feline.nvim"
   use "SmiteshP/nvim-navic"
+  use "folke/tokyonight.nvim"
 
   use { "akinsho/toggleterm.nvim", tag = "v2.*" }
 

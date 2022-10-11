@@ -4,51 +4,51 @@ if not feline_ok then
 end
 
 local one_monokai = {
-  fg = "#abb2bf",
-  bg = "#282c34",
-  bg2 = "#1e222a",
-  green = "#98c379",
-  yellow = "#e5c07b",
-  purple = "#c678dd",
+  fg = "#c8d3f5",
+  bg = "#1e2030",
+  bg_dark = "#222436",
+  green = "#c3e88d",
+  yellow = "#ffc777",
+  purple = "#fca7ea",
   orange = "#d19a66",
-  peanut = "#f6d5a4",
-  red = "#e06c75",
-  aqua = "#61afef",
-  dark_red = "#f75f5f",
+  fg_dark = "#a9b1d6",
+  red = "#ff757f",
+  teal = "#4fd6be",
+  dark_red = "#c53b53",
 }
 
 local w = {
   file_name = {
     provider = "file_info",
     hl = {
-      fg = "aqua",
-      bg = "bg2",
+      fg = "teal",
+      bg = "bg_dark",
     },
   },
   navic = {
     provider = require("nvim-navic").get_location,
     enabled = require("nvim-navic").is_available,
     hl = {
-      bg = "bg2",
+      bg = "bg_dark",
     },
     left_sep = {
       str = "block",
       hl = {
-        fg = "bg2",
-        bg = "bg2",
+        fg = "bg_dark",
+        bg = "bg_dark",
       },
     },
   },
   separator = {
     provider = " ",
     hl = {
-      bg = "bg2",
+      bg = "bg_dark",
     },
     enabled = require("nvim-navic").is_available,
     right_sep = {
       str = "slant_left_thin",
       hl = {
-        bg = "bg2",
+        bg = "bg_dark",
       },
     },
   },
@@ -69,8 +69,8 @@ local s = {
   end_pts = {
     provider = " ",
     hl = {
-      fg = "aqua",
-      bg = "aqua",
+      fg = "teal",
+      bg = "teal",
     },
   },
   gitBranch = {
@@ -106,12 +106,12 @@ local left = {
   s.component(" ", "fg", "block"),
   s.component("diagnostic_errors", "dark_red"),
   s.component("diagnostic_warnings", "yellow"),
-  s.component("diagnostic_hints", "aqua"),
+  s.component("diagnostic_hints", "teal"),
   s.component("diagnostic_info", "fg"),
 }
 
 local right = {
-  s.component("lsp_client_names", "peanut", "block"),
+  s.component("lsp_client_names", "fg_dark", "block"),
   s.component("position", "green", "block"),
   s.component("line_percentage", "orange", "block"),
   s.end_pts,
