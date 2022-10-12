@@ -3,7 +3,7 @@ if not feline_ok then
   return
 end
 
-local one_monokai = {
+local tokyonight = {
   fg = "#c8d3f5",
   bg = "#1e2030",
   bg_dark = "#222436",
@@ -13,119 +13,76 @@ local one_monokai = {
   orange = "#d19a66",
   fg_dark = "#a9b1d6",
   red = "#ff757f",
-  teal = "#4fd6be",
+  blue = "#82aaff",
   dark_red = "#c53b53",
 }
 
-local w = {
-  file_name = {
-    provider = "file_info",
+local provide = function(provider, fg_color, bg_color, style, left_sep, right_sep, enabled)
+  provider = provider or " "
+  fg_color = fg_color or "fg"
+  bg_color = bg_color or "bg"
+  style = style or "NONE"
+  left_sep = left_sep or ""
+  right_sep = right_sep or ""
+  enabled = enabled or true
+  return {
+    provider = provider,
     hl = {
-      fg = "teal",
-      bg = "bg_dark",
+      fg = fg_color,
+      bg = bg_color,
+      style = style,
     },
-  },
-  navic = {
-    provider = require("nvim-navic").get_location,
-    enabled = require("nvim-navic").is_available,
-    hl = {
-      bg = "bg_dark",
-    },
-    left_sep = {
-      str = "block",
-      hl = {
-        fg = "bg_dark",
-        bg = "bg_dark",
-      },
-    },
-  },
-  separator = {
-    provider = " ",
-    hl = {
-      bg = "bg_dark",
-    },
-    enabled = require("nvim-navic").is_available,
-    right_sep = {
-      str = "slant_left_thin",
-      hl = {
-        bg = "bg_dark",
-      },
-    },
-  },
-}
-
-local s = {
-  component = function(name, color, separator)
-    separator = separator or ""
-    return {
-      provider = name,
-      hl = {
-        fg = color,
-      },
-      left_sep = separator,
-      right_sep =  separator,
-    }
-  end,
-  end_pts = {
-    provider = " ",
-    hl = {
-      fg = "teal",
-      bg = "teal",
-    },
-  },
-  gitBranch = {
-    provider = "git_branch",
-    hl = {
-      fg = "purple",
-      style = "bold",
-    },
-    left_sep = "block",
-    right_sep = "block",
-  },
-  file_type = {
-    provider = {
-      name = "file_type",
-      opts = {
-        filetype_icon = true,
-        case = "titlecase",
-      },
-    },
-    left_sep = "block",
-    right_sep = "block",
-  },
-}
+    left_sep = left_sep,
+    right_sep = right_sep,
+    enabled = enabled,
+  }
+end
 
 local left = {
-  s.end_pts,
-  s.gitBranch,
-  s.file_type,
-  s.component(" ", "fg"),
-  s.component("git_diff_added", "green"),
-  s.component("git_diff_removed", "red"),
-  s.component("git_diff_changed", "fg"),
-  s.component(" ", "fg", "block"),
-  s.component("diagnostic_errors", "dark_red"),
-  s.component("diagnostic_warnings", "yellow"),
-  s.component("diagnostic_hints", "teal"),
-  s.component("diagnostic_info", "fg"),
+  provide(" ", "blue", "blue"),
+  provide("git_branch", "purple", "bg", "bold", "block", "block"),
+  provide(
+    { name = "file_type", opts = { filetype_icon = true, case = "titlecase" } },
+    "fg",
+    "bg",
+    "NONE",
+    "block",
+    "block"
+  ),
+  provide " ",
+  provide("git_diff_added", "green"),
+  provide("git_diff_removed", "red"),
+  provide("git_diff_changed", "fg"),
+  provide(" ", "fg", "bg", "NONE", "block", "block"),
+  provide("diagnostic_errors", "dark_red"),
+  provide("diagnostic_warnings", "yellow"),
+  provide("diagnostic_hints", "blue"),
+  provide "diagnostic_info",
 }
 
 local right = {
-  s.component("lsp_client_names", "fg_dark", "block"),
-  s.component("position", "green", "block"),
-  s.component("line_percentage", "orange", "block"),
-  s.end_pts,
+  provide("lsp_client_names", "fg_dark", "bg", "NONE", "block", "block"),
+  provide("position", "green", "bg", "NONE", "block", "block"),
+  provide("line_percentage", "orange", "bg", "NONE", "block", "block"),
+  provide(" ", "blue", "blue"),
 }
 
 local left_inactive = {
-  s.end_pts,
-  s.file_type,
+  provide(" ", "blue", "blue"),
+  provide(
+    { name = "file_type", opts = { filetype_icon = true, case = "titlecase" } },
+    "fg",
+    "bg",
+    "NONE",
+    "block",
+    "block"
+  ),
 }
 
 local right_inactive = {
-  s.component("position", "green", "block"),
-  s.component("line_percentage", "orange", "block"),
-  s.end_pts,
+  provide("position", "green", "bg", "NONE", "block", "block"),
+  provide("line_percentage", "orange", "bg", "NONE", "block", "block"),
+  provide(" ", "blue", "blue"),
 }
 
 local components = {
@@ -142,21 +99,37 @@ local components = {
 local components_winbar = {
   active = {
     {
-      w.file_name,
-      w.separator,
-      w.navic,
+      provide({ name = "file_info", opts = { type = "relative" } }, "blue", "bg_dark"),
+      provide(
+        " ",
+        "fg",
+        "bg_dark",
+        "NONE",
+        "",
+        { str = "slant_left_thin", hl = { bg = "bg_dark" } },
+        require("nvim-navic").is_available
+      ),
+      provide(
+        require("nvim-navic").get_location,
+        "fg",
+        "bg_dark",
+        "NONE",
+        "block",
+        { str = "block", hl = { fg = "bg_dark", bg = "bg_dark" } },
+        require("nvim-navic").is_available
+      ),
     },
   },
   inactive = {
     {
-      w.file_name,
+      provide({ name = "file_info", opts = { type = "relative" } }, "blue", "bg_dark"),
     },
   },
 }
 
 feline.setup {
   components = components,
-  theme = one_monokai,
+  theme = tokyonight,
 }
 
 feline.winbar.setup { components = components_winbar }
