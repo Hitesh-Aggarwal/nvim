@@ -99,7 +99,14 @@ local components = {
 local components_winbar = {
   active = {
     {
-      provide({ name = "file_info", opts = { type = "relative" } }, "blue", "bg_dark"),
+      provide(
+        { name = "file_info", opts = { type = "relative" } },
+        "blue",
+        "bg_dark",
+        "NONE",
+        "",
+        { str = "", hl = { fg = "bg_dark", bg = "bg_dark" } }
+      ),
       provide(
         " ",
         "fg",
@@ -115,14 +122,21 @@ local components_winbar = {
         "bg_dark",
         "NONE",
         "block",
-        { str = "block", hl = { fg = "bg_dark", bg = "bg_dark" } },
+        { str = "", hl = { fg = "bg_dark", bg = "bg_dark" } },
         require("nvim-navic").is_available
       ),
     },
   },
   inactive = {
     {
-      provide({ name = "file_info", opts = { type = "relative" } }, "blue", "bg_dark"),
+      provide(
+        { name = "file_info", opts = { type = "relative" } },
+        "blue",
+        "bg_dark",
+        "NONE",
+        "",
+        { str = "", hl = { fg = "bg_dark", bg = "bg_dark" } }
+      ),
     },
   },
 }
