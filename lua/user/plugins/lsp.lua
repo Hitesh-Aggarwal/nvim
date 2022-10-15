@@ -84,6 +84,6 @@ if not status_ok then
   return
 end
 
-M.capabilities = cmpNvimLsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+M.capabilities = cmpNvimLsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 return M

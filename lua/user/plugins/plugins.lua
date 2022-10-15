@@ -75,7 +75,7 @@ return packer.startup(function(use)
   use "Shatur/neovim-session-manager"
   use "lewis6991/gitsigns.nvim"
   use "j-hui/fidget.nvim"
-  use "folke/lua-dev.nvim"
+  use "folke/neodev.nvim"
   use "ibhagwan/fzf-lua"
   use "feline-nvim/feline.nvim"
   use "SmiteshP/nvim-navic"
