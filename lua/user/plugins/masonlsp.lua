@@ -25,7 +25,6 @@ mson.setup_handlers {
     }
   end,
   -- Next, you can provide targeted overrides for specific servers.
-  -- For example, a handler override for the `rust_analyzer`:
   -- ["rust_analyzer"] = function()
   -- 	require("rust-tools").setup({})
   -- end,
