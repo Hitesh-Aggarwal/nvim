@@ -11,7 +11,7 @@ require("lsp_signature").setup()
 require("mason").setup()
 require("gitsigns").setup()
 require("fidget").setup()
-require("lua-dev").setup {}
+require("neodev").setup {}
 require "user.plugins.session_manager"
 require "user.plugins.feline"
 require "user.plugins.masonlsp"
