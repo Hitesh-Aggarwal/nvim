@@ -2,6 +2,7 @@ local o = vim.o
 local g = vim.g
 
 o.number = true
+o.relativenumber = true
 o.lazyredraw = true
 o.wrap = false
 o.foldmethod = "syntax"
