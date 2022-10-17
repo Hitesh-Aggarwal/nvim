@@ -71,7 +71,6 @@ return packer.startup(function(use)
   use "williamboman/mason-lspconfig.nvim"
   use "WhoIsSethDaniel/mason-tool-installer.nvim"
   use "onsails/lspkind.nvim"
-  use "cpea2506/one_monokai.nvim"
   use "Shatur/neovim-session-manager"
   use "lewis6991/gitsigns.nvim"
   use "j-hui/fidget.nvim"
