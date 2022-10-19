@@ -19,6 +19,7 @@ require("lir").setup {
     ["-"] = actions.up,
     ["h"] = actions.up,
     ["q"] = actions.quit,
+    ["<ESC>"] = actions.quit,
 
     ["A"] = actions.mkdir,
     ["a"] = actions.newfile,
