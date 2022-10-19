@@ -20,7 +20,7 @@ require "user.plugins.colorizer"
 require "user.plugins.treesitter"
 require "user.plugins.fzf_lua"
 require "user.plugins.toggleterm"
-require "user.plugins.nvimtree"
+require("user.plugins.lir")
 require "user.plugins.cmp"
 require "user.plugins.lsp"
 require "user.plugins.nullLs"

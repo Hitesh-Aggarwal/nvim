@@ -64,7 +64,6 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets"
   use "williamboman/mason.nvim"
   use "ray-x/lsp_signature.nvim"
-  use "kyazdani42/nvim-tree.lua"
   use "kyazdani42/nvim-web-devicons"
   use "jose-elias-alvarez/null-ls.nvim"
   use "nvim-lua/plenary.nvim"
@@ -79,6 +78,7 @@ return packer.startup(function(use)
   use "feline-nvim/feline.nvim"
   use "SmiteshP/nvim-navic"
   use "folke/tokyonight.nvim"
+  use "tamago324/lir.nvim"
 
   use { "akinsho/toggleterm.nvim", tag = "v2.*" }
 

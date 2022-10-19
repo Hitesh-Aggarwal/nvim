@@ -44,7 +44,7 @@ map("n", "<m-k>", ":m .-2<CR>==")
 map("n", "<leader>c", ":e <C-R>=stdpath('config') . '" .. sep .. "init.lua'<CR><CR>")
 
 -- Open NvimTree
-map("n", "<leader>e", "<cmd>NvimTreeOpen<CR>")
+map("n", "<leader>e", require("lir.float").init)
 
 -- Change directory to current file
 map("n", "<leader>d", ":lcd %:p:h<CR>")

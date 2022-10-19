@@ -6,7 +6,7 @@ o.relativenumber = true
 o.lazyredraw = true
 o.wrap = false
 o.foldmethod = "syntax"
-vim.opt.path:append("**")
+vim.opt.path:append "**"
 o.confirm = true
 o.ignorecase = true
 o.smartcase = true
@@ -31,3 +31,5 @@ o.hlsearch = false
 
 g.mapleader = ";"
 g.maplocalleader = ";"
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
