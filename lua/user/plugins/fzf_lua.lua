@@ -9,6 +9,7 @@ local opts = {
   previewer = false,
   git_icons = false,
   file_icons = false,
+  fd_opts = "--color=never --type f --hidden --exclude .git",
 }
 
 fzf_lua.setup {
