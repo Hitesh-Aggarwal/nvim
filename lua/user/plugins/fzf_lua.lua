@@ -10,6 +10,7 @@ local opts = {
   git_icons = false,
   file_icons = false,
   fd_opts = "--color=never --type f --hidden --exclude .git",
+  rg_opts = "--color=never --files --hidden -g '!.git'",
 }
 
 fzf_lua.setup {
