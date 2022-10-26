@@ -61,6 +61,7 @@ local left = {
 }
 
 local right = {
+  provide("綠TS","green","bg","bold","","block",require("nvim-treesitter.parsers").has_parser),
   provide("lsp_client_names", "fg_dark", "bg", "NONE", "block", "block"),
   provide("position", "green", "bg", "NONE", "block", "block"),
   provide("line_percentage", "orange", "bg", "NONE", "block", "block"),
