@@ -3,7 +3,7 @@ if jit.os == "Windows" then
     0,
     "n",
     "<leader>r",
-    ':w<CR>:TermExec cmd="g++ -g -Wall <C-R>% -o out\\<C-R>%<BS><BS><BS>exe && .\\out\\<C-R>%<BS><BS><BS>exe"<CR>',
+    ':w<CR>:TermExec cmd="g++ -O3 -g -Wall <C-R>% -o out\\<C-R>%<BS><BS><BS>exe && .\\out\\<C-R>%<BS><BS><BS>exe"<CR>',
     { noremap = true }
   )
 else
@@ -11,7 +11,7 @@ else
     0,
     "n",
     "<leader>r",
-    ':w<CR>:TermExec cmd="g++ -g -Wall % -o out/%:r && ./out/%:r"<CR>',
+    ':w<CR>:TermExec cmd="g++ -O3 -Wall % -o out/%:r && ./out/%:r"<CR>',
     { noremap = true }
   )
 end
