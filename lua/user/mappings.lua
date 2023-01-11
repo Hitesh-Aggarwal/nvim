@@ -1,3 +1,6 @@
+vim.g.mapleader = ";"
+vim.g.maplocalleader = ";"
+
 local sep = ""
 if jit.os == "Windows" then
   sep = "\\"
@@ -43,7 +46,7 @@ map("n", "<m-k>", ":m .-2<CR>==")
 -- Quickly open config file
 map("n", "<leader>c", ":e <C-R>=stdpath('config') . '" .. sep .. "init.lua'<CR><CR>")
 
--- Open NvimTree
+-- Open FileExplorer
 map("n", "<leader>e", require("lir.float").toggle)
 
 -- Change directory to current file
