@@ -14,7 +14,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("user.plugins")
+require("lazy").setup "user.plugins"
 
 require "user.mappings"
 require "user.autocommands"

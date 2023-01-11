@@ -9,7 +9,7 @@ return {
     if not status_ok then
       return
     end
-    local lsp_ok, lsp = pcall(require, "user.plugins.lsp")
+    local lsp_ok, lsp = pcall(require, "user.lsp")
     if not lsp_ok then
       return
     end
