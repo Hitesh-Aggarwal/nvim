@@ -49,6 +49,4 @@ Delete these folders if they exist.
 git clone --depth 1 https://github.com/Hitesh-Aggarwal/nvim.git ~/.config/nvim/
 ```
 
-First run of neovim will install packer and all the plugins. In case of error run <code>:PackerSync</code>
-
-Second run will install treesitter parsers, lsp servers and formatters.
+First run of neovim will install lazy and all the plugins.
