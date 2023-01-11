@@ -44,7 +44,7 @@ map("n", "<m-k>", ":m .-2<CR>==")
 map("n", "<leader>c", ":e <C-R>=stdpath('config') . '" .. sep .. "init.lua'<CR><CR>")
 
 -- Open FileExplorer
-map("n", "<leader>e", require("lir.float").toggle)
+map("n", "<leader>e", ":lua require('lir.float').toggle()<CR>")
 
 -- Change directory to current file
 map("n", "<leader>d", ":lcd %:p:h<CR>")

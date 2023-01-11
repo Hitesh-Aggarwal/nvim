@@ -1,13 +1,17 @@
-local status_ok, nullls = pcall(require, "null-ls")
-if not status_ok then
-  return
-end
-
-local formatting = nullls.builtins.formatting
-
-nullls.setup {
-  sources = {
-    formatting.stylua,
-    formatting.prettierd,
+return {
+  "jose-elias-alvarez/null-ls.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
   },
+  ft = { "lua", "html", "css", "javascript", "javascriptreact", "typescript" },
+  config = function()
+    local null_ls = require("null-ls")
+
+    null_ls.setup({
+      sources = {
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.prettierd,
+      },
+    })
+  end
 }

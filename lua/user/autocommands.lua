@@ -1,6 +1,5 @@
 -- Augroups
 local basics = vim.api.nvim_create_augroup("basics", { clear = true })
-local packer_user_config = vim.api.nvim_create_augroup("PackerUserConfig", { clear = true })
 local betterfold = vim.api.nvim_create_augroup("Better Folding", { clear = true })
 
 -- autocommands
@@ -16,13 +15,6 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
   desc = "Disables automatic commenting on newline",
-})
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-  group = packer_user_config,
-  pattern = "plugins.lua",
-  command = "source <afile> | PackerCompile",
-  desc = "Run :PackerCompile when plugin.lua is written",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
