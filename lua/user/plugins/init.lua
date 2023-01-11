@@ -2,25 +2,22 @@ return {
   -- "lewis6991/impatient.nvim",
   {
     "windwp/nvim-autopairs",
+    event = "VeryLazy",
     config = true,
   },
   {
     "numToStr/Comment.nvim",
-    keys = {
-      { "gcc", mode = "n" },
-      { "gbc", mode = "n" },
-      { "gc", mode = "v" },
-      { "gb", mode = "v" },
-    },
+    event = "VeryLazy",
     config = true,
   },
   {
     "williamboman/mason.nvim",
+    event = "VeryLazy",
     config = true,
-    lazy = true,
   },
   {
     "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
     config = true,
   },
   {
@@ -29,6 +26,7 @@ return {
   },
   {
     "j-hui/fidget.nvim",
+    event = "VeryLazy",
     config = true,
   },
   {

@@ -1,10 +1,3 @@
-local sep = ""
-if jit.os == "Windows" then
-  sep = "\\"
-else
-  sep = "/"
-end
-
 -- Functional wrapper for mapping custom keybindings
 local map = function(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
@@ -41,10 +34,10 @@ map("n", "<m-j>", ":m .+1<CR>==")
 map("n", "<m-k>", ":m .-2<CR>==")
 
 -- Quickly open config file
-map("n", "<leader>c", ":e <C-R>=stdpath('config') . '" .. sep .. "init.lua'<CR><CR>")
+map("n", "<leader>c", ":e <C-R>=stdpath('config') . '/init.lua'<CR><CR>")
 
 -- Open FileExplorer
-map("n", "<leader>e", ":lua require('lir.float').toggle()<CR>")
+map("n", "<leader>e", '<cmd>lua require("lir.float").toggle()<CR>')
 
 -- Change directory to current file
 map("n", "<leader>d", ":lcd %:p:h<CR>")
@@ -54,11 +47,8 @@ map("n", "<leader>sl", "<cmd>SessionManager load_session<CR>")
 map("n", "<leader>sd", "<cmd>SessionManager delete_session<CR>")
 
 -- Fzf-lua
-local fzf_ok, fzf_lua = pcall(require, "fzf-lua")
-if not fzf_ok then
-  return
-end
-map("n", "<leader>ff", fzf_lua.files)
-map("n", "<leader>fr", fzf_lua.live_grep)
-map("n", "<leader>b", fzf_lua.buffers)
-map("n", "<leader>o", fzf_lua.oldfiles)
+map("n", "<leader>ff", '<cmd>lua require("fzf-lua").files()<CR>')
+map("n", "<leader>fr", '<cmd>lua require("fzf-lua").live_grep()<CR>')
+map("n", "<leader>b", '<cmd>lua require("fzf-lua").buffers()<CR>')
+map("n", "<leader>o", '<cmd>lua require("fzf-lua").oldfiles()<CR>')
+
