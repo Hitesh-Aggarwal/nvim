@@ -1,6 +1,3 @@
-vim.g.mapleader = ";"
-vim.g.maplocalleader = ";"
-
 local sep = ""
 if jit.os == "Windows" then
   sep = "\\"
