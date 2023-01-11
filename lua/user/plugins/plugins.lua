@@ -7,90 +7,65 @@ else
   sep = "/"
 end
 
--- Automatically install packer
-local install_path = fn.stdpath "data"
-  .. sep
-  .. "site"
-  .. sep
-  .. "pack"
-  .. sep
-  .. "packer"
-  .. sep
-  .. "start"
-  .. sep
-  .. "packer.nvim"
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
+-- Automatically install lazy
+local lazypath = vim.fn.stdpath("data") .. sep .. "lazy" .. sep .. "lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  vim.cmd [[ packadd packer.nvim ]]
-  print "Installing packer"
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local status_ok, packer = pcall(require, "packer")
+local status_ok, lazy = pcall(require, "lazy")
 if not status_ok then
   return
 end
 
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
+return lazy.setup{
+  "lewis6991/impatient.nvim",
+  "wbthomason/packer.nvim",
+  "windwp/nvim-autopairs",
+  "numToStr/Comment.nvim",
+  "norcalli/nvim-colorizer.lua",
+  "neovim/nvim-lspconfig",
+
+  "L3MON4D3/LuaSnip",
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
+  "saadparwaiz1/cmp_luasnip",
+
+  "rafamadriz/friendly-snippets",
+  "williamboman/mason.nvim",
+  "ray-x/lsp_signature.nvim",
+  "kyazdani42/nvim-web-devicons",
+  "jose-elias-alvarez/null-ls.nvim",
+  "nvim-lua/plenary.nvim",
+  "williamboman/mason-lspconfig.nvim",
+  "WhoIsSethDaniel/mason-tool-installer.nvim",
+  "onsails/lspkind.nvim",
+  "Shatur/neovim-session-manager",
+  "lewis6991/gitsigns.nvim",
+  "j-hui/fidget.nvim",
+  "folke/neodev.nvim",
+  "ibhagwan/fzf-lua",
+  "feline-nvim/feline.nvim",
+  "SmiteshP/nvim-navic",
+  "folke/tokyonight.nvim",
+  "tamago324/lir.nvim",
+
+  { "akinsho/toggleterm.nvim", version = "v2.*" },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = function()
+      require("nvim-treesitter.install").update { with_sync = true }
     end,
   },
 }
-
-return packer.startup(function(use)
-  use "lewis6991/impatient.nvim"
-  use "wbthomason/packer.nvim"
-  use "windwp/nvim-autopairs"
-  use "numToStr/Comment.nvim"
-  use "norcalli/nvim-colorizer.lua"
-  use "neovim/nvim-lspconfig"
-
-  use "L3MON4D3/LuaSnip"
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-path"
-  use "saadparwaiz1/cmp_luasnip"
-
-  use "rafamadriz/friendly-snippets"
-  use "williamboman/mason.nvim"
-  use "ray-x/lsp_signature.nvim"
-  use "kyazdani42/nvim-web-devicons"
-  use "jose-elias-alvarez/null-ls.nvim"
-  use "nvim-lua/plenary.nvim"
-  use "williamboman/mason-lspconfig.nvim"
-  use "WhoIsSethDaniel/mason-tool-installer.nvim"
-  use "onsails/lspkind.nvim"
-  use "Shatur/neovim-session-manager"
-  use "lewis6991/gitsigns.nvim"
-  use "j-hui/fidget.nvim"
-  use "folke/neodev.nvim"
-  use "ibhagwan/fzf-lua"
-  use "feline-nvim/feline.nvim"
-  use "SmiteshP/nvim-navic"
-  use "folke/tokyonight.nvim"
-  use "tamago324/lir.nvim"
-
-  use { "akinsho/toggleterm.nvim", tag = "v2.*" }
-
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = function()
-      require("nvim-treesitter.install").update { with_sync = true }
-    end,
-  }
-
-  if PACKER_BOOTSTRAP then
-    print "Installing plugins"
-    require("packer").sync()
-  end
-end)

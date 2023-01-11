@@ -29,5 +29,7 @@ o.history = 50
 o.signcolumn = "yes"
 o.hlsearch = false
 
+vim.g.mapleader = ";"
+vim.g.maplocalleader = ";"
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
