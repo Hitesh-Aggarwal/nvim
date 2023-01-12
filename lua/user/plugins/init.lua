@@ -1,7 +1,6 @@
 return {
   {
     "windwp/nvim-autopairs",
-    event = "VeryLazy",
     config = true,
   },
   {
@@ -20,7 +19,6 @@ return {
   },
   {
     "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
     config = true,
   },
   {
@@ -29,7 +27,6 @@ return {
   },
   {
     "j-hui/fidget.nvim",
-    event = "VeryLazy",
     config = true,
   },
   {
