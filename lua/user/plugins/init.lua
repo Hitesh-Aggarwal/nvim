@@ -1,5 +1,4 @@
 return {
-  -- "lewis6991/impatient.nvim",
   {
     "windwp/nvim-autopairs",
     event = "VeryLazy",
@@ -7,7 +6,12 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    event = "VeryLazy",
+    keys = {
+      {"gcc", mode = "n"},
+      {"gbc", mode = "n"},
+      {"gc", mode = "v"},
+      {"gb", mode = "v"},
+    },
     config = true,
   },
   {

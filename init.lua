@@ -1,4 +1,3 @@
--- pcall(require, "impatient")
 require "user.settings"
 -- Automatically install lazy
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"

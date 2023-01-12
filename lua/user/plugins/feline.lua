@@ -1,10 +1,5 @@
 return {
   "feline-nvim/feline.nvim",
-  dependencies = {
-    "SmiteshP/nvim-navic",
-    "nvim-treesitter/nvim-treesitter",
-    "lewis6991/gitsigns.nvim",
-  },
   config = function()
     local feline_ok, feline = pcall(require, "feline")
     if not feline_ok then
