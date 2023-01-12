@@ -1,6 +1,5 @@
 return {
   "ibhagwan/fzf-lua",
-  lazy = true,
   config = function()
     local fzf_ok, fzf_lua = pcall(require, "fzf-lua")
     if not fzf_ok then
